@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903140E238D8C810059CD5B /* ColorPicker.swift */; };
+		99031411238D930E0059CD5B /* DecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99031410238D930E0059CD5B /* DecimalField.swift */; };
 		99190EA42389064600F8E15E /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EA32389064600F8E15E /* Bill.swift */; };
 		99190EA72389080E00F8E15E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EA62389080E00F8E15E /* Date+Extension.swift */; };
 		99190EA92389083100F8E15E /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EA82389083100F8E15E /* Color+Extension.swift */; };
 		99190EAB2389357C00F8E15E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EAA2389357C00F8E15E /* Data.swift */; };
 		99190EAD23894D9300F8E15E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EAC23894D9300F8E15E /* UserData.swift */; };
 		99190EAF23894E4500F8E15E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EAE23894E4500F8E15E /* Profile.swift */; };
-		99190EB1238A4C0700F8E15E /* AddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EB0238A4C0700F8E15E /* AddingLabel.swift */; };
 		99190EB5238AE6BA00F8E15E /* SelectionCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */; };
-		99190EB7238AFB1D00F8E15E /* ColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EB6238AFB1D00F8E15E /* ColorRow.swift */; };
 		996722AC23859E4300D0E6BC /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996722AB23859E4300D0E6BC /* PieChart.swift */; };
 		996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996722AD23859E4D00D0E6BC /* LineChart.swift */; };
 		99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD6923845BC300446823 /* HomeFooter.swift */; };
-		99D4AD722384638E00446823 /* Adding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD712384638E00446823 /* Adding.swift */; };
+		99D4AD722384638E00446823 /* AddingBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD712384638E00446823 /* AddingBill.swift */; };
 		99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94A2380290F006845D1 /* AppDelegate.swift */; };
 		99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94C2380290F006845D1 /* SceneDelegate.swift */; };
 		99E6E95123802911006845D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95023802911006845D1 /* Assets.xcassets */; };
@@ -27,24 +27,23 @@
 		99E6E95723802911006845D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95523802911006845D1 /* LaunchScreen.storyboard */; };
 		99F8CF402382FE1F00F4E20B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF3F2382FE1F00F4E20B /* Home.swift */; };
 		99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF4B23844E2700F4E20B /* BillRow.swift */; };
-		99F8CF4F23844F3700F4E20B /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF4E23844F3700F4E20B /* Label.swift */; };
 		99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF502384506D00F4E20B /* HomeHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9903140E238D8C810059CD5B /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		99031410238D930E0059CD5B /* DecimalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalField.swift; sourceTree = "<group>"; };
 		99190EA32389064600F8E15E /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		99190EA62389080E00F8E15E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		99190EA82389083100F8E15E /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		99190EAA2389357C00F8E15E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		99190EAC23894D9300F8E15E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		99190EAE23894E4500F8E15E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		99190EB0238A4C0700F8E15E /* AddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingLabel.swift; sourceTree = "<group>"; };
 		99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCircle.swift; sourceTree = "<group>"; };
-		99190EB6238AFB1D00F8E15E /* ColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRow.swift; sourceTree = "<group>"; };
 		996722AB23859E4300D0E6BC /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		996722AD23859E4D00D0E6BC /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		99D4AD6923845BC300446823 /* HomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooter.swift; sourceTree = "<group>"; };
-		99D4AD712384638E00446823 /* Adding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adding.swift; sourceTree = "<group>"; };
+		99D4AD712384638E00446823 /* AddingBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingBill.swift; sourceTree = "<group>"; };
 		99E6E9472380290F006845D1 /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E6E94A2380290F006845D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E6E94C2380290F006845D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +53,6 @@
 		99E6E95823802911006845D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99F8CF3F2382FE1F00F4E20B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		99F8CF4B23844E2700F4E20B /* BillRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRow.swift; sourceTree = "<group>"; };
-		99F8CF4E23844F3700F4E20B /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		99F8CF502384506D00F4E20B /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				99190EAC23894D9300F8E15E /* UserData.swift */,
+				99190EAE23894E4500F8E15E /* Profile.swift */,
 				99190EA32389064600F8E15E /* Bill.swift */,
 				99190EAA2389357C00F8E15E /* Data.swift */,
-				99190EAE23894E4500F8E15E /* Profile.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -92,8 +90,8 @@
 		99D4AD6B23845F0E00446823 /* Adding */ = {
 			isa = PBXGroup;
 			children = (
-				99D4AD712384638E00446823 /* Adding.swift */,
-				99190EB0238A4C0700F8E15E /* AddingLabel.swift */,
+				99D4AD712384638E00446823 /* AddingBill.swift */,
+				9903140E238D8C810059CD5B /* ColorPicker.swift */,
 			);
 			name = Adding;
 			sourceTree = "<group>";
@@ -170,11 +168,10 @@
 		99F8CF4D23844EF600F4E20B /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
-				99F8CF4E23844F3700F4E20B /* Label.swift */,
 				996722AB23859E4300D0E6BC /* PieChart.swift */,
 				996722AD23859E4D00D0E6BC /* LineChart.swift */,
 				99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */,
-				99190EB6238AFB1D00F8E15E /* ColorRow.swift */,
+				99031410238D930E0059CD5B /* DecimalField.swift */,
 			);
 			name = "Supporting Views";
 			sourceTree = "<group>";
@@ -251,7 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99190EB7238AFB1D00F8E15E /* ColorRow.swift in Sources */,
 				996722AC23859E4300D0E6BC /* PieChart.swift in Sources */,
 				99190EA42389064600F8E15E /* Bill.swift in Sources */,
 				99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */,
@@ -262,13 +258,13 @@
 				996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */,
 				99190EAB2389357C00F8E15E /* Data.swift in Sources */,
 				99190EAF23894E4500F8E15E /* Profile.swift in Sources */,
-				99F8CF4F23844F3700F4E20B /* Label.swift in Sources */,
 				99F8CF402382FE1F00F4E20B /* Home.swift in Sources */,
 				99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */,
-				99D4AD722384638E00446823 /* Adding.swift in Sources */,
+				99D4AD722384638E00446823 /* AddingBill.swift in Sources */,
 				99190EB5238AE6BA00F8E15E /* SelectionCircle.swift in Sources */,
+				99031411238D930E0059CD5B /* DecimalField.swift in Sources */,
 				99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */,
-				99190EB1238A4C0700F8E15E /* AddingLabel.swift in Sources */,
+				9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */,
 				99190EA92389083100F8E15E /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

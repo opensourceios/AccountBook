@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SelectionCircle: View {
     var color: Color
-    @Binding var isSelected: Bool
+    var isSelected: Bool
 
     var body: some View {
         GeometryReader { geometry in
@@ -18,13 +18,12 @@ struct SelectionCircle: View {
                 .stroke(self.color, lineWidth: geometry.size.width * 0.07)
                 .frame(width: geometry.size.width - geometry.size.width * 0.12)
                 .position(CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2))
-
             if self.isSelected {
                 Circle()
                     .fill(self.color)
                     .position(CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2))
                     .frame(width: geometry.size.width / 1.4)
-                    .transition(.scale)
+                    .animation(Animation.spring(dampingFraction: 0.5))
             }
         }
     }
@@ -32,7 +31,7 @@ struct SelectionCircle: View {
 
 struct SelectionCircle_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionCircle(color: .orange, isSelected: .constant(true))
+        SelectionCircle(color: .orange, isSelected: true)
             .previewLayout(.fixed(width: 100, height: 100))
     }
 }

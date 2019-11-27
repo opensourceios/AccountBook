@@ -32,7 +32,7 @@ struct HomeFooter: View {
         }) {
             Text("Income")
         }.sheet(isPresented: $showingAdding) {
-            Adding(kind: .income, isPresented: self.$showingAdding)
+            AddingBill(kind: .income)
                 .environmentObject(self.userData)
         }
     }
@@ -43,7 +43,7 @@ struct HomeFooter: View {
         }) {
             Text("Spending")
         }.sheet(isPresented: $showingAdding) {
-            Adding(kind: .spending, isPresented: self.$showingAdding)
+            AddingBill(kind: .spending)
                 .environmentObject(self.userData)
         }
     }

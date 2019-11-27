@@ -1,5 +1,5 @@
 //
-//  Adding.swift
+//  AddingBill.swift
 //  AccountBook
 //
 //  Created by Mason Sun on 2019/11/20.
@@ -8,25 +8,21 @@
 
 import SwiftUI
 
-struct Adding: View {
-    @State private var billAmount: Decimal?
-    @State private var billLabels: [Bill.Label] = []
-    @State private var billDate = Date()
+struct AddingBill: View {
+    @State private var bill = Bill.defaultBill
     @State private var isShowingAddingLabel = false
-
-    @EnvironmentObject var userData: UserData
+    @Environment(\.presentationMode) private var presentation
     
+    @EnvironmentObject var userData: UserData
     var kind: Bill.Kind
-    @Binding var isPresented: Bool
 
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section(header: Text("Amount")) {
-                        TextField("Amount", value: $billAmount, formatter: self.amountFormatter)
-                            .font(.system(Font.TextStyle.title))
-                            .keyboardType(.decimalPad)
+                        TextField("Amount", value: $bill.amount, formatter: currencyFormatter)
+                        //                        DecimalField(label: "Amount", value: $billAmount, formatter: currencyFormatter)
                     }
                     .padding(.top, 16)
                     Section(header: Text("Labels")) {
@@ -36,27 +32,19 @@ struct Adding: View {
                             Text("Add Labels")
                         }
                         .sheet(isPresented: self.$isShowingAddingLabel) {
-                            AddingLabel(isPresented: self.$isShowingAddingLabel)
+                            ColorPicker(color: self.$bill.color)
                         }
                     }
                     Section(header: Text("Date")) {
-                        DatePicker("", selection: self.$billDate, displayedComponents: .date)
+                        DatePicker("", selection: $bill.date, displayedComponents: .date)
                             .transition(.opacity)
                     }
                 }
                 .listStyle(GroupedListStyle())
 
                 Spacer()
-
                 Button(action: {
-                    let bill = Bill(
-                        id: UUID().uuidString,
-                        kind: self.kind,
-                        amount: self.billAmount ?? 0,
-                        date: self.billDate,
-                        labels: []
-                    )
-                    self.addBill(bill)
+                    self.addBill()
                 }) {
                     Text("Add")
                 }
@@ -68,24 +56,33 @@ struct Adding: View {
         }
     }
 
-    func addBill(_ bill: Bill) {
-        self.userData.bills.append(bill)
-        self.userData.saveBills()
-        self.isPresented.toggle()
+    func addBill() {
+        bill.kind = kind
+        userData.bills.append(bill)
+        userData.saveBills()
+        presentation.wrappedValue.dismiss()
     }
 
     // MARK: Components
+
+    private var currencyFormatter: NumberFormatter {
+        let nf = NumberFormatter()
+        nf.numberStyle = .currency
+        nf.isLenient = true
+        return nf
+    }
 
     private var amountFormatter: NumberFormatter {
         let result = NumberFormatter()
         result.maximumFractionDigits = 2
         return result
     }
+
 }
 
-struct Adding_Previews: PreviewProvider {
+struct AddingBill_Previews: PreviewProvider {
     static var previews: some View {
-        Adding(kind: .income, isPresented: .constant(true))
+        AddingBill(kind: .income)
             .environmentObject(UserData())
         
     }

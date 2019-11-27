@@ -11,9 +11,8 @@ import SwiftUI
 struct BillRow: View {
     var body: some View {
         HStack {
-            ForEach(0..<3) { _ in
-                Label()
-            }
+            Color.red
+                .frame(width: 44)
             Spacer()
             Text("+2000")
         }

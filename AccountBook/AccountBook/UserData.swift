@@ -14,7 +14,6 @@ let labelsData = "labelsData"
 
 final class UserData : ObservableObject {
     @Published var bills: [Bill] = load(from: billsData) ?? []
-    @Published var labels: [Bill.Label] = load(from: labelsData) ?? []
 
     var income: Decimal {
         return bills.filter{ $0.kind == .income }.reduce(0, { $0 + $1.amount })
@@ -28,10 +27,6 @@ final class UserData : ObservableObject {
 
     func saveBills() {
         save(data: bills, to: billsData)
-    }
-
-    func saveLabels() {
-        save(data: labels, to: labelsData)
     }
 }
 

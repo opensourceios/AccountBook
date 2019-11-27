@@ -12,36 +12,45 @@ import SwiftUI
 struct Bill : Codable, Hashable, Identifiable {
 
     // MARK: Nestd Types
-
     enum Kind : String, Codable { case income, spending }
-
-    struct Label : Codable, Hashable {
-        var name: String
-        var color: Int
-        var kind: Kind
-
-        init(kind: Kind, name: String, color: Int) {
-            self.kind = kind
-            self.name = name
-            self.color = color
-        }
-    }
 
     var id: String
     var kind: Kind
+    var name: String
     var amount: Decimal
     var date: Date
-    var labels: [Label]
-
-    init(id: String, kind: Kind, amount: Decimal, date: Date, labels: [Label]) {
-        self.id = id
-        self.kind = kind
-        self.amount = amount
-        self.date = date
-        self.labels = labels
-    }
+    var color: BillColor
 
     static var defaultBill: Bill {
-        return Bill(id: UUID().uuidString, kind: .income, amount: 100.00, date: Date(), labels: [ Label(kind: .income, name: "Learning", color: 0x121212) ])
+        return Bill(id: UUID().uuidString, kind: .income, name: "Shopping", amount: 100.00, date: Date(), color: .red)
+    }
+}
+
+enum BillColor : String, Codable, Hashable, CaseIterable {
+    case red = "Red"
+    case orange = "Orange"
+    case yellow = "Yellow"
+    case green = "Green"
+    case blue = "Blue"
+    case purple = "Purple"
+    case gray = "Gray"
+
+    var color: Color {
+        switch self {
+        case .red:
+            return .red
+        case .orange:
+            return .orange
+        case .yellow:
+            return .yellow
+        case .green:
+            return .green
+        case .blue:
+            return .blue
+        case .purple:
+            return .purple
+        case .gray:
+            return .gray
+        }
     }
 }

@@ -9,35 +9,6 @@
 import UIKit
 import SwiftUI
 
-enum LabelColor : String, CaseIterable {
-    case red = "Red"
-    case orange = "Orange"
-    case yellow = "Yellow"
-    case green = "Green"
-    case blue = "Blue"
-    case purple = "Purple"
-    case gray = "Gray"
-
-    var value: Color {
-        switch self {
-        case .red:
-            return .red
-        case .orange:
-            return .orange
-        case .yellow:
-            return .yellow
-        case .green:
-            return .green
-        case .blue:
-            return .blue
-        case .purple:
-            return .purple
-        case .gray:
-            return .gray
-        }
-    }
-}
-
 extension Color {
     static func color(hexRGB value: Int) -> Color {
         let red = Double((value >> 16) & 0xff) / 255

@@ -35,7 +35,7 @@ enum BillColor : String, Codable, Hashable, CaseIterable {
     case purple = "Purple"
     case gray = "Gray"
 
-    var color: Color {
+    var value: Color {
         switch self {
         case .red:
             return .red

@@ -16,15 +16,18 @@ struct Home: View {
         NavigationView {
             VStack {
                 HomeHeader()
-                List(userData.bills, id: \.self) { bill in
-                    Section(header: Text("20-Wednesday")) {
-                        BillRow()
+                    .padding()
+                List {
+                    ForEach(userData.bills, id: \.id) { bill in
+                        Section(header: Text("20-Wednesday")) {
+                            BillRow(bill: bill)
+                        }
                     }
                 }
                 HomeFooter().environmentObject(userData)
             }
-            .navigationBarTitle("2019-10")
-            .navigationBarItems(leading: Text("Diagram"), trailing: Text("Settings"))
+            .navigationBarTitle("2019 10 11", displayMode: .inline)
+            .navigationBarItems(leading: diagramButton, trailing: settingsButton)
         }
 //        .onAppear {
 //            UITableView.appearance().separatorStyle = .none
@@ -32,6 +35,24 @@ struct Home: View {
 //        .onDisappear() {
 //            UITableView.appearance().separatorStyle = .singleLine
 //        }
+    }
+
+    // MARK: Components
+
+    private var diagramButton: some View {
+        Button(action: {
+
+        }) {
+            Text("Diagram")
+        }
+    }
+
+    private var settingsButton: some View {
+        Button(action: {
+
+        }) {
+            Text("Settings")
+        }
     }
 }
 

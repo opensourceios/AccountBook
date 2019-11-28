@@ -12,58 +12,53 @@ struct AddingBill: View {
     @State private var bill = Bill.defaultBill
     @State private var isShowingAddingLabel = false
     @Environment(\.presentationMode) private var presentation
-    
+
     @EnvironmentObject var userData: UserData
     var kind: Bill.Kind
 
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    Section(header: Text("Amount")) {
-                        TextField("Amount", value: $bill.amount, formatter: currencyFormatter)
-                        //                        DecimalField(label: "Amount", value: $billAmount, formatter: currencyFormatter)
-                    }
-                    .padding(.top, 16)
-                    Section(header: Text("Labels")) {
-                        Button(action: {
-                            self.isShowingAddingLabel.toggle()
-                        }) {
-                            Text("Add Labels")
-                        }
-                        .sheet(isPresented: self.$isShowingAddingLabel) {
-                            ColorPicker(color: self.$bill.color)
-                        }
-                    }
-                    Section(header: Text("Date")) {
-                        DatePicker("", selection: $bill.date, displayedComponents: .date)
-                            .transition(.opacity)
+            List {
+                Section(header: Text("Amount")) {
+                    TextField("Amount", value: $bill.amount, formatter: currencyFormatter)
+                    //                        DecimalField(label: "Amount", value: $billAmount, formatter: currencyFormatter)
+                }
+                .padding(.top, 16)
+                Section(header: Text("Color")) {
+                    ForEach(BillColor.allCases, id: \.self) { billColor in
+                        BillColorRow(bill: self.$bill, billColor: billColor, isSelected: self.bill.color == billColor)
                     }
                 }
-                .listStyle(GroupedListStyle())
-
-                Spacer()
-                Button(action: {
-                    self.addBill()
-                }) {
-                    Text("Add")
+                Section(header: Text("Date")) {
+                    DatePicker("", selection: $bill.date, displayedComponents: .date)
+                        .transition(.opacity)
+                        .labelsHidden()
                 }
-                .frame(maxWidth: .infinity, maxHeight: 44)
-                .background(Color.orange)
-                .cornerRadius(8)
             }
+            .listStyle(GroupedListStyle())
             .navigationBarTitle("Add Bill", displayMode: .inline)
+            .navigationBarItems(leading: cancelButton, trailing: doneButton)
         }
     }
 
-    func addBill() {
-        bill.kind = kind
-        userData.bills.append(bill)
-        userData.saveBills()
-        presentation.wrappedValue.dismiss()
+    // MARK: Components
+
+    private var cancelButton: some View {
+        Button(action: {
+            self.presentation.wrappedValue.dismiss()
+        }) {
+            Text("Cancel")
+        }
     }
 
-    // MARK: Components
+    private var doneButton: some View {
+        Button(action: {
+            self.addBill()
+            self.presentation.wrappedValue.dismiss()
+        }) {
+            Text("Done")
+        }
+    }
 
     private var currencyFormatter: NumberFormatter {
         let nf = NumberFormatter()
@@ -78,6 +73,14 @@ struct AddingBill: View {
         return result
     }
 
+    // MARK: Interaction
+
+    private func addBill() {
+        bill.kind = kind
+        userData.bills.append(bill)
+        userData.saveBills()
+        presentation.wrappedValue.dismiss()
+    }
 }
 
 struct AddingBill_Previews: PreviewProvider {

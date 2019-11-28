@@ -9,18 +9,23 @@
 import SwiftUI
 
 struct BillRow: View {
+
+    var bill: Bill
+
     var body: some View {
         HStack {
-            Color.red
-                .frame(width: 44)
+            bill.color.value
+                .frame(width: 4)
+            Text(bill.name)
             Spacer()
-            Text("+2000")
+            Text(bill.amount.currencyString)
         }
     }
 }
 
 struct BillRow_Previews: PreviewProvider {
     static var previews: some View {
-        BillRow()
+        BillRow(bill: Bill.defaultBill)
+            .previewLayout(.fixed(width: 300, height: 44))
     }
 }

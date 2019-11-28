@@ -10,20 +10,25 @@ import SwiftUI
 
 struct HomeHeader: View {
     var body: some View {
-        HStack(alignment: .center) {
-            VStack(spacing: 4) {
-                Text("Income")
-                Text("2000000.0")
+        HStack() {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Income")
+                        .foregroundColor(.gray)
+                    Text("200000000")
+                        .font(.system(.title))
+                }
+                Spacer()
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding([ .leading, .trailing ], 0)
-
-            VStack(spacing: 4) {
-                Text("Spending")
-                Text("300000.0")
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Spending")
+                        .foregroundColor(.gray)
+                    Text("300000.00")
+                        .font(.system(.title))
+                }
+                Spacer()
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding([ .leading, .trailing ], 0)
         }
     }
 }

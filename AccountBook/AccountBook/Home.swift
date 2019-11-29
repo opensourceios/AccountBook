@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Home: View {
-
+    @State private var isShowingChartView: Bool = false
     @EnvironmentObject var userData: UserData
 
     var body: some View {
@@ -41,9 +41,12 @@ struct Home: View {
 
     private var diagramButton: some View {
         Button(action: {
-
+            self.isShowingChartView.toggle()
         }) {
-            Text("Diagram")
+            Text("Chart")
+        }
+        .sheet(isPresented: $isShowingChartView) {
+            ChartView()
         }
     }
 

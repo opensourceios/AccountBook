@@ -18,6 +18,10 @@
 		99190EB5238AE6BA00F8E15E /* SelectionCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */; };
 		996722AC23859E4300D0E6BC /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996722AB23859E4300D0E6BC /* PieChart.swift */; };
 		996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996722AD23859E4D00D0E6BC /* LineChart.swift */; };
+		9989412923901AA900C7899D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412823901AA900C7899D /* ChartView.swift */; };
+		9989412B23901AFA00C7899D /* ChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412A23901AFA00C7899D /* ChartRow.swift */; };
+		9989412D2390226500C7899D /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412C2390226500C7899D /* Chart.swift */; };
+		9989412F239034E100C7899D /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412E239034E100C7899D /* ChartCell.swift */; };
 		99BA6917238ED8EC00FBD3E1 /* BillColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA6916238ED8EC00FBD3E1 /* BillColorRow.swift */; };
 		99BA6919238EE2F200FBD3E1 /* Decimal+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */; };
 		99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD6923845BC300446823 /* HomeFooter.swift */; };
@@ -44,6 +48,10 @@
 		99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCircle.swift; sourceTree = "<group>"; };
 		996722AB23859E4300D0E6BC /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
 		996722AD23859E4D00D0E6BC /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		9989412823901AA900C7899D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		9989412A23901AFA00C7899D /* ChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRow.swift; sourceTree = "<group>"; };
+		9989412C2390226500C7899D /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		9989412E239034E100C7899D /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		99BA6916238ED8EC00FBD3E1 /* BillColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillColorRow.swift; sourceTree = "<group>"; };
 		99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extension.swift"; sourceTree = "<group>"; };
 		99D4AD6923845BC300446823 /* HomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooter.swift; sourceTree = "<group>"; };
@@ -87,9 +95,31 @@
 				99190EAC23894D9300F8E15E /* UserData.swift */,
 				99190EAE23894E4500F8E15E /* Profile.swift */,
 				99190EA32389064600F8E15E /* Bill.swift */,
+				9989412C2390226500C7899D /* Chart.swift */,
 				99190EAA2389357C00F8E15E /* Data.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		99894124239019D700C7899D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99F8CF4D23844EF600F4E20B /* Supporting */,
+				9989412523901A0100C7899D /* Chart */,
+				99F8CF3E2382FDB000F4E20B /* Home */,
+				99D4AD6B23845F0E00446823 /* Adding */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9989412523901A0100C7899D /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				9989412823901AA900C7899D /* ChartView.swift */,
+				9989412A23901AFA00C7899D /* ChartRow.swift */,
+				9989412E239034E100C7899D /* ChartCell.swift */,
+			);
+			name = Chart;
 			sourceTree = "<group>";
 		};
 		99D4AD6B23845F0E00446823 /* Adding */ = {
@@ -122,11 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				99E6E95F23802D14006845D1 /* Delegate */,
+				99894124239019D700C7899D /* Views */,
 				99190EA5238907EE00F8E15E /* Extensions */,
 				996722AA2385989D00D0E6BC /* Models */,
-				99D4AD6B23845F0E00446823 /* Adding */,
-				99F8CF4D23844EF600F4E20B /* Supporting Views */,
-				99F8CF3E2382FDB000F4E20B /* Home */,
 				99E6E96023802D30006845D1 /* Resource */,
 				99E6E95223802911006845D1 /* Preview Content */,
 			);
@@ -171,7 +199,7 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		99F8CF4D23844EF600F4E20B /* Supporting Views */ = {
+		99F8CF4D23844EF600F4E20B /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
 				996722AB23859E4300D0E6BC /* PieChart.swift */,
@@ -179,7 +207,7 @@
 				99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */,
 				99031410238D930E0059CD5B /* DecimalField.swift */,
 			);
-			name = "Supporting Views";
+			name = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,14 +290,18 @@
 				99BA6919238EE2F200FBD3E1 /* Decimal+Extension.swift in Sources */,
 				99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */,
 				99190EA72389080E00F8E15E /* Date+Extension.swift in Sources */,
+				9989412923901AA900C7899D /* ChartView.swift in Sources */,
 				996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */,
 				99BA6917238ED8EC00FBD3E1 /* BillColorRow.swift in Sources */,
 				99190EAB2389357C00F8E15E /* Data.swift in Sources */,
+				9989412F239034E100C7899D /* ChartCell.swift in Sources */,
+				9989412D2390226500C7899D /* Chart.swift in Sources */,
 				99190EAF23894E4500F8E15E /* Profile.swift in Sources */,
 				99F8CF402382FE1F00F4E20B /* Home.swift in Sources */,
 				99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */,
 				99D4AD722384638E00446823 /* AddingBill.swift in Sources */,
 				99190EB5238AE6BA00F8E15E /* SelectionCircle.swift in Sources */,
+				9989412B23901AFA00C7899D /* ChartRow.swift in Sources */,
 				99031411238D930E0059CD5B /* DecimalField.swift in Sources */,
 				99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */,
 				9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */,

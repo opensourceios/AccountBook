@@ -26,6 +26,18 @@ struct Bill : Codable, Hashable, Identifiable {
     }
 }
 
+extension Bill {
+    struct YearBill {
+        let year: Int
+        let months: [MonthBill]
+    }
+
+    struct MonthBill {
+        let month: Int
+        let bills: [Bill]
+    }
+}
+
 enum BillColor : String, Codable, Hashable, CaseIterable {
     case red = "Red"
     case orange = "Orange"

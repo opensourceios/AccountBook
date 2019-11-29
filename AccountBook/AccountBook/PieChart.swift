@@ -9,32 +9,36 @@
 import SwiftUI
 
 struct PieChart: View {
+    var data: [ Chart ]
 
-    var data: [ Double ] = [ 0.2, 0.3, 0.5 ]
-
-    // TODO: Let's make a Model to save every `spending`'s percent and start & end angle
-    
     var body: some View {
         GeometryReader { geometry in
-            ForEach(self.data, id: \.self) { percent in
+            ForEach(self.data, id: \.self) { data in
                 self.createPath(
-                    startAngle: Angle(radians: 0),
-                    endAngle: Angle(radians: percent * .pi * 2),
+                    startAngle: Angle(radians: data.startAngle),
+                    endAngle: Angle(radians: data.endAngle),
+                    radius: min(geometry.size.width, geometry.size.height) / 2,
                     on: geometry
                 )
-                .fill(Color.random)
+                    .fill(data.color)
             }
+            self.createPath(
+                startAngle: Angle(radians: 0),
+                endAngle: Angle(radians: .pi * 2),
+                radius: min(geometry.size.width, geometry.size.height) / 4,
+                on: geometry
+            )
+                .fill(Color.white)
         }
     }
 
-    private func createPath(startAngle: Angle, endAngle: Angle, on geometry: GeometryProxy) -> Path {
+    private func createPath(startAngle: Angle, endAngle: Angle, radius: CGFloat, on geometry: GeometryProxy) -> Path {
         let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
-        let diameter = min(geometry.size.width, geometry.size.height)
         return Path { path in
             path.move(to: center)
             path.addArc(
                 center: center,
-                radius: diameter / 2,
+                radius: radius,
                 startAngle: startAngle,
                 endAngle: endAngle,
                 clockwise: false
@@ -42,11 +46,19 @@ struct PieChart: View {
             path.closeSubpath()
         }
     }
+
+
 }
 
 struct PieChart_Previews: PreviewProvider {
     static var previews: some View {
-        PieChart()
+        let data = [
+            Chart(color: .red, startPoint: 0.0, percent: 0.2),
+            Chart(color: .orange, startPoint: 0.2, percent: 0.3),
+            Chart(color: .purple, startPoint: 0.5, percent: 0.15),
+            Chart(color: .blue, startPoint: 0.65, percent: 0.35)
+        ]
+        return PieChart(data: data)
             .previewLayout(.fixed(width: 200, height: 200))
     }
 }

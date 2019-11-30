@@ -12,12 +12,18 @@ struct ChartView: View {
     @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) private var presentation
 
+    var yearBills: [Bill.YearBill] {
+        Calendar.years.map {
+            userData.getYearBill(for: $0)
+        }
+    }
+
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(Calendar.years.reversed(), id: \.self) { year in
-                        ChartRow(year: year)
+                    ForEach(yearBills, id: \.self) { yearBill in
+                        ChartRow(yearBill: yearBill)
                     }
                 }
             }
@@ -35,5 +41,6 @@ struct ChartView: View {
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
         ChartView()
+            .environmentObject(UserData())
     }
 }

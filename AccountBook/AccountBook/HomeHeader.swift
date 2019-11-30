@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct HomeHeader: View {
+
+    @EnvironmentObject var userData: UserData
+
     var body: some View {
         HStack() {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Income")
                         .foregroundColor(.gray)
-                    Text("200000000")
+                    Text("\(userData.income.amountString)")
                         .font(.system(.title))
                 }
                 Spacer()
@@ -24,7 +27,7 @@ struct HomeHeader: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Spending")
                         .foregroundColor(.gray)
-                    Text("300000.00")
+                    Text("\(userData.spending.amountString)")
                         .font(.system(.title))
                 }
                 Spacer()
@@ -33,9 +36,12 @@ struct HomeHeader: View {
     }
 }
 
+#if DEBUG
 struct HomeHeader_Previews: PreviewProvider {
     static var previews: some View {
         HomeHeader()
+            .environmentObject(UserData())
             .padding([ .leading, .trailing ], 16)
     }
 }
+#endif

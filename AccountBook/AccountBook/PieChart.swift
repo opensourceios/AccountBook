@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct PieChart: View {
-    var data: [ Chart ]
+    var slices: [ ChartSlice ]
 
     var body: some View {
         GeometryReader { geometry in
-            ForEach(self.data, id: \.self) { data in
+            // Color Circle
+            ForEach(self.slices.isEmpty ? ChartSlice.defaultValue : self.slices, id: \.self) { data in
                 self.createPath(
                     startAngle: Angle(radians: data.startAngle),
                     endAngle: Angle(radians: data.endAngle),
@@ -22,6 +23,7 @@ struct PieChart: View {
                 )
                     .fill(data.color)
             }
+            // Middle white Circle
             self.createPath(
                 startAngle: Angle(radians: 0),
                 endAngle: Angle(radians: .pi * 2),
@@ -29,6 +31,17 @@ struct PieChart: View {
                 on: geometry
             )
                 .fill(Color.white)
+            // Placeholder
+            if self.slices.isEmpty {
+                Circle()
+                    .fill(Color.black)
+                    .opacity(0.35)
+
+                Text("No Bills")
+                    .foregroundColor(.white)
+                    .font(.system(.subheadline))
+                    .position(CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2))
+            }
         }
     }
 
@@ -50,15 +63,23 @@ struct PieChart: View {
 
 }
 
+#if DEBUG
 struct PieChart_Previews: PreviewProvider {
     static var previews: some View {
-        let data = [
-            Chart(color: .red, startPoint: 0.0, percent: 0.2),
-            Chart(color: .orange, startPoint: 0.2, percent: 0.3),
-            Chart(color: .purple, startPoint: 0.5, percent: 0.15),
-            Chart(color: .blue, startPoint: 0.65, percent: 0.35)
-        ]
-        return PieChart(data: data)
+        return PieChart(slices: ChartSlice.defaultValue)
             .previewLayout(.fixed(width: 200, height: 200))
+    }
+}
+#endif
+
+extension ChartSlice {
+    static var defaultValue: [ChartSlice] {
+        var startPoint: Double = 0
+        let totalCount = Double(BillColor.allCases.count)
+        return BillColor.allCases.map { billColor in
+            let percent = 1 / totalCount
+            defer { startPoint += percent }
+            return ChartSlice(color: billColor.value, startPoint: startPoint, percent: percent)
+        }
     }
 }

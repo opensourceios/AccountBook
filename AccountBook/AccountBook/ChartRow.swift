@@ -9,20 +9,23 @@
 import SwiftUI
 
 struct ChartRow: View {
+    private let row: Int = 4
+    private let column: Int = 3
 
-    var year: Int
+    var yearBill: Bill.YearBill
 
     var body: some View {
         VStack() {
             HStack {
-                Text("2019")
-                .font(.system(.title))
-                .fontWeight(.bold)
+                Text(yearBill.displayYear)
+                    .foregroundColor(Calendar.currentYear == yearBill.year ? .red : .black)
+                    .font(.system(.title))
+                    .fontWeight(.bold)
                 Spacer()
             }
             Divider()
-            ForEach(0..<4, id: \.self) { index in
-                self.createRow(with: index)
+            ForEach(0..<row, id: \.self) { row in
+                self.createRow(row)
             }
         }
         .padding()
@@ -30,10 +33,10 @@ struct ChartRow: View {
 
     // MARK: Components
 
-    private func createRow(with index: Int) -> some View {
-        return HStack {
-            ForEach(0..<3, id: \.self) { i in
-                ChartCell()
+    private func createRow(_ row: Int) -> some View {
+        HStack(spacing: 16) {
+            ForEach(0..<column, id: \.self) { column in
+                ChartCell(monthBill: self.yearBill.monthBills[row * 3 + column], isCurrentYear: Calendar.currentYear == self.yearBill.year)
             }
         }
     }
@@ -42,26 +45,11 @@ struct ChartRow: View {
 struct ChartRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ChartRow(year: 2019)
+            ChartRow(yearBill: Bill.YearBill.defaultValue(2019))
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-            ChartRow(year: 2019)
+            ChartRow(yearBill: Bill.YearBill.defaultValue(2019))
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
         }
-    }
-}
-
-extension Calendar {
-    static var currentMonth: Int {
-        return Calendar.current.component(.month, from: Date())
-    }
-
-    static var currentYear: Int {
-        return Calendar.current.component(.year, from: Date())
-    }
-
-    static var years: [Int] {
-        let beginYear = Calendar.current.component(.year, from: Date.init(timeIntervalSince1970: 0))
-        return (beginYear...currentYear).reversed().map { $0 }
     }
 }
 

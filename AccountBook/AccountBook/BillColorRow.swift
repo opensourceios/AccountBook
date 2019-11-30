@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct BillColorRow: View {
-    @Binding var bill: Bill
     var billColor: BillColor
     var isSelected: Bool = false
 
@@ -19,14 +18,12 @@ struct BillColorRow: View {
                 .frame(width: 24)
             Text(billColor.rawValue)
                 .frame(maxWidth: .infinity, alignment: .leading)
-        }.onTapGesture {
-            self.bill.color = self.billColor
         }
     }
 }
 
 struct BillColorRow_Previews: PreviewProvider {
     static var previews: some View {
-        BillColorRow(bill: .constant(Bill.defaultBill), billColor: .red)
+        BillColorRow(billColor: .red)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Chart.swift
+//  ChartSlice.swift
 //  AccountBook
 //
 //  Created by Mason Sun on 2019/11/28.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct Chart: Hashable {
+struct ChartSlice : Hashable {
     var color: Color
     var startPoint: Double
     var percent: Double

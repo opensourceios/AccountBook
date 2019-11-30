@@ -23,11 +23,11 @@ final class UserData : ObservableObject {
         bills.filter { $0.kind == .spending }.reduce(0, { $0 + $1.amount })
     }
 
-    var currentMonthData: Bill.MonthBill {
+    var currentMonthBill: Bill.MonthBill {
         getMonthBill(for: Calendar.currentMonth, on: Calendar.currentYear)
     }
 
-    var currentYearData: Bill.YearBill {
+    var currentYearBill: Bill.YearBill {
         getYearBill(for: Calendar.currentYear)
     }
 
@@ -45,11 +45,17 @@ final class UserData : ObservableObject {
     }
 
     func getYearBill(for year: Int) -> Bill.YearBill {
-        let monthBills: [Bill.MonthBill] = (1..<13).map { getMonthBill(for: $0, on: year) }
-        return Bill.YearBill(year: year, months: monthBills)
+        let monthBills: [Bill.MonthBill] = (1...12).map { getMonthBill(for: $0, on: year) }
+        return Bill.YearBill(year: year, monthBills: monthBills)
     }
 }
 
 extension UserData {
 
+}
+
+extension Decimal {
+    var amountString: String {
+        return String(format: "%.02f", Double(truncating: self as NSNumber))
+    }
 }

@@ -25,7 +25,7 @@ struct BillRow: View {
 
 struct BillRow_Previews: PreviewProvider {
     static var previews: some View {
-        BillRow(bill: Bill.defaultBill)
+        BillRow(bill: Bill.defaultValue)
             .previewLayout(.fixed(width: 300, height: 44))
     }
 }

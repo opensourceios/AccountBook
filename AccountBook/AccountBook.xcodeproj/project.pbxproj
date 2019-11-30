@@ -20,12 +20,13 @@
 		996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996722AD23859E4D00D0E6BC /* LineChart.swift */; };
 		9989412923901AA900C7899D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412823901AA900C7899D /* ChartView.swift */; };
 		9989412B23901AFA00C7899D /* ChartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412A23901AFA00C7899D /* ChartRow.swift */; };
-		9989412D2390226500C7899D /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412C2390226500C7899D /* Chart.swift */; };
+		9989412D2390226500C7899D /* ChartSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412C2390226500C7899D /* ChartSlice.swift */; };
 		9989412F239034E100C7899D /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989412E239034E100C7899D /* ChartCell.swift */; };
 		99BA6917238ED8EC00FBD3E1 /* BillColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA6916238ED8EC00FBD3E1 /* BillColorRow.swift */; };
 		99BA6919238EE2F200FBD3E1 /* Decimal+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */; };
 		99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD6923845BC300446823 /* HomeFooter.swift */; };
 		99D4AD722384638E00446823 /* AddingBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD712384638E00446823 /* AddingBill.swift */; };
+		99E2E152239268620025742B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E151239268620025742B /* UIApplication+Extension.swift */; };
 		99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94A2380290F006845D1 /* AppDelegate.swift */; };
 		99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94C2380290F006845D1 /* SceneDelegate.swift */; };
 		99E6E95123802911006845D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95023802911006845D1 /* Assets.xcassets */; };
@@ -50,12 +51,13 @@
 		996722AD23859E4D00D0E6BC /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		9989412823901AA900C7899D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		9989412A23901AFA00C7899D /* ChartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRow.swift; sourceTree = "<group>"; };
-		9989412C2390226500C7899D /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		9989412C2390226500C7899D /* ChartSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSlice.swift; sourceTree = "<group>"; };
 		9989412E239034E100C7899D /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		99BA6916238ED8EC00FBD3E1 /* BillColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillColorRow.swift; sourceTree = "<group>"; };
 		99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Extension.swift"; sourceTree = "<group>"; };
 		99D4AD6923845BC300446823 /* HomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooter.swift; sourceTree = "<group>"; };
 		99D4AD712384638E00446823 /* AddingBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingBill.swift; sourceTree = "<group>"; };
+		99E2E151239268620025742B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		99E6E9472380290F006845D1 /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E6E94A2380290F006845D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E6E94C2380290F006845D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				99190EA62389080E00F8E15E /* Date+Extension.swift */,
 				99190EA82389083100F8E15E /* Color+Extension.swift */,
 				99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */,
+				99E2E151239268620025742B /* UIApplication+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -95,7 +98,7 @@
 				99190EAC23894D9300F8E15E /* UserData.swift */,
 				99190EAE23894E4500F8E15E /* Profile.swift */,
 				99190EA32389064600F8E15E /* Bill.swift */,
-				9989412C2390226500C7899D /* Chart.swift */,
+				9989412C2390226500C7899D /* ChartSlice.swift */,
 				99190EAA2389357C00F8E15E /* Data.swift */,
 			);
 			name = Models;
@@ -295,7 +298,7 @@
 				99BA6917238ED8EC00FBD3E1 /* BillColorRow.swift in Sources */,
 				99190EAB2389357C00F8E15E /* Data.swift in Sources */,
 				9989412F239034E100C7899D /* ChartCell.swift in Sources */,
-				9989412D2390226500C7899D /* Chart.swift in Sources */,
+				9989412D2390226500C7899D /* ChartSlice.swift in Sources */,
 				99190EAF23894E4500F8E15E /* Profile.swift in Sources */,
 				99F8CF402382FE1F00F4E20B /* Home.swift in Sources */,
 				99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */,
@@ -305,6 +308,7 @@
 				99031411238D930E0059CD5B /* DecimalField.swift in Sources */,
 				99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */,
 				9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */,
+				99E2E152239268620025742B /* UIApplication+Extension.swift in Sources */,
 				99190EA92389083100F8E15E /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,21 @@
 
 import Foundation
 
+extension Calendar {
+    static var currentMonth: Int {
+        return Calendar.current.component(.month, from: Date())
+    }
+
+    static var currentYear: Int {
+        return Calendar.current.component(.year, from: Date())
+    }
+
+    static var years: [Int] {
+        let beginYear = Calendar.current.component(.year, from: Date.init(timeIntervalSince1970: 0))
+        return (beginYear...currentYear).reversed().map { $0 }
+    }
+}
+
 extension Date {
 
     var displayDayFormat: String {

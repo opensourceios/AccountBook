@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct AddingBill: View {
-    @State private var bill = Bill.defaultBill
+    @State private var billName: String = ""
+    @State private var billAmount: Decimal?
+    @State private var billColor: BillColor = .red
+    @State private var billDate: Date = Date()
     @State private var isShowingAddingLabel = false
     @Environment(\.presentationMode) private var presentation
 
@@ -19,18 +22,22 @@ struct AddingBill: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Amount")) {
-                    TextField("Amount", value: $bill.amount, formatter: currencyFormatter)
-                    //                        DecimalField(label: "Amount", value: $billAmount, formatter: currencyFormatter)
+                Section(header: Text("Name")) {
+                    TextField("Name", text: $billName)
+                        .font(.system(.subheadline))
                 }
-                .padding(.top, 16)
+                Section(header: Text("Amount")) {
+                    TextField("Amount", text: amount)
+                        .keyboardType(.numbersAndPunctuation)
+                        .font(.system(.largeTitle))
+                }
                 Section(header: Text("Color")) {
                     ForEach(BillColor.allCases, id: \.self) { billColor in
-                        BillColorRow(bill: self.$bill, billColor: billColor, isSelected: self.bill.color == billColor)
+                        BillColorRow(billColor: billColor, isSelected: self.billColor == billColor)
                     }
                 }
                 Section(header: Text("Date")) {
-                    DatePicker("", selection: $bill.date, displayedComponents: .date)
+                    DatePicker("", selection: $billDate, displayedComponents: .date)
                         .transition(.opacity)
                         .labelsHidden()
                 }
@@ -58,17 +65,29 @@ struct AddingBill: View {
         }) {
             Text("Done")
         }
+        .disabled(billName.isEmpty || billAmount == nil)
     }
 
-    private var currencyFormatter: NumberFormatter {
-        let nf = NumberFormatter()
-        nf.numberStyle = .currency
-        nf.isLenient = true
-        return nf
+    private var amount: Binding<String> {
+        Binding<String>(
+            get: {
+                if let billAmount = self.billAmount {
+                    return String(format: "%.02f", Double(truncating: billAmount as NSNumber))
+                } else {
+                    return ""
+                }
+        }) {
+            if let value = self.amountFormatter.number(from: $0) {
+                self.billAmount = value.decimalValue
+            } else {
+                self.billAmount = 0
+            }
+        }
     }
 
     private var amountFormatter: NumberFormatter {
         let result = NumberFormatter()
+        result.minimumFractionDigits = 2
         result.maximumFractionDigits = 2
         return result
     }
@@ -76,13 +95,20 @@ struct AddingBill: View {
     // MARK: Interaction
 
     private func addBill() {
-        bill.kind = kind
+        let bill = Bill(
+            id: UUID().uuidString,
+            kind: kind,
+            name: billName,
+            amount: billAmount ?? 0,
+            date: billDate,
+            color: billColor)
         userData.bills.append(bill)
         userData.saveBills()
         presentation.wrappedValue.dismiss()
     }
 }
 
+#if DEBUG
 struct AddingBill_Previews: PreviewProvider {
     static var previews: some View {
         AddingBill(kind: .income)
@@ -90,3 +116,14 @@ struct AddingBill_Previews: PreviewProvider {
         
     }
 }
+#endif
+
+// Will be deleted
+struct ListOffsetKey : PreferenceKey {
+    static var defaultValue: [CGFloat] = []
+
+    static func reduce(value: inout [CGFloat], nextValue: () -> [CGFloat]) {
+        value.append(contentsOf: nextValue())
+    }
+}
+

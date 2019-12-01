@@ -34,10 +34,13 @@ struct AddingBill: View {
                 Section(header: Text("Color")) {
                     ForEach(BillColor.allCases, id: \.self) { billColor in
                         BillColorRow(billColor: billColor, isSelected: self.billColor == billColor)
+                            .onTapGesture {
+                                self.billColor = billColor
+                        }
                     }
                 }
                 Section(header: Text("Date")) {
-                    DatePicker("", selection: $billDate, displayedComponents: .date)
+                    DatePicker("", selection: $billDate, in: Calendar.dateClosedRange, displayedComponents: .date)
                         .transition(.opacity)
                         .labelsHidden()
                 }
@@ -56,6 +59,7 @@ struct AddingBill: View {
         }) {
             Text("Cancel")
         }
+        .modifier(RedButton())
     }
 
     private var doneButton: some View {
@@ -65,31 +69,8 @@ struct AddingBill: View {
         }) {
             Text("Done")
         }
-        .disabled(billName.isEmpty || billAmount == nil)
-    }
-
-    private var amount: Binding<String> {
-        Binding<String>(
-            get: {
-                if let billAmount = self.billAmount {
-                    return String(format: "%.02f", Double(truncating: billAmount as NSNumber))
-                } else {
-                    return ""
-                }
-        }) {
-            if let value = self.amountFormatter.number(from: $0) {
-                self.billAmount = value.decimalValue
-            } else {
-                self.billAmount = 0
-            }
-        }
-    }
-
-    private var amountFormatter: NumberFormatter {
-        let result = NumberFormatter()
-        result.minimumFractionDigits = 2
-        result.maximumFractionDigits = 2
-        return result
+        .foregroundColor(doneButtonColor)
+        .disabled(!canDone)
     }
 
     // MARK: Interaction
@@ -105,6 +86,37 @@ struct AddingBill: View {
         userData.bills.append(bill)
         userData.saveBills()
         presentation.wrappedValue.dismiss()
+    }
+
+    // MARK: Accessors
+
+    private var amount: Binding<String> {
+        Binding<String>(
+            get: {
+                if let billAmount = self.billAmount {
+                    return String(format: "%.02f", Double(truncating: billAmount as NSNumber))
+                } else {
+                    return ""
+                }
+        }) {
+            if let value = NumberFormatter.amountFormatter.number(from: $0) {
+                self.billAmount = value.decimalValue
+            } else {
+                self.billAmount = nil
+            }
+        }
+    }
+
+    private var canDone: Bool {
+        !billName.isEmpty && billAmount != nil
+    }
+
+    private var doneButtonColor: Color {
+        if canDone {
+            return .red
+        } else {
+            return Color(.secondaryLabel)
+        }
     }
 }
 

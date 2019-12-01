@@ -10,28 +10,39 @@ import SwiftUI
 
 struct HomeHeader: View {
 
-    @EnvironmentObject var userData: UserData
+    var amount: Amount
 
     var body: some View {
         HStack() {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .center, spacing: 4) {
                     Text("Income")
-                        .foregroundColor(.gray)
-                    Text("\(userData.income.amountString)")
+                        .foregroundColor(Color(.secondaryLabel))
+                        .font(.system(.headline))
+                    Text("+\(amount.income.amountString)")
                         .font(.system(.title))
                 }
-                Spacer()
+                .frame(maxWidth: .infinity)
             }
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .center, spacing: 4) {
                     Text("Spending")
-                        .foregroundColor(.gray)
-                    Text("\(userData.spending.amountString)")
+                        .foregroundColor(Color(.secondaryLabel))
+                        .font(.system(.headline))
+                    Text("-\(amount.spending.amountString)")
                         .font(.system(.title))
                 }
-                Spacer()
+                .frame(maxWidth: .infinity)
             }
+        }
+    }
+
+    struct Amount {
+        let income: Decimal
+        let spending: Decimal
+
+        static var defaultValue: Amount {
+            Amount(income: 100, spending: 200)
         }
     }
 }
@@ -39,7 +50,7 @@ struct HomeHeader: View {
 #if DEBUG
 struct HomeHeader_Previews: PreviewProvider {
     static var previews: some View {
-        HomeHeader()
+        HomeHeader(amount: .defaultValue)
             .environmentObject(UserData())
             .padding([ .leading, .trailing ], 16)
     }

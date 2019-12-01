@@ -10,7 +10,7 @@ import Foundation
 
 extension Decimal {
     var currencyString: String {
-        let formatter = NumberFormatter.currencyFormatter
+        let formatter = NumberFormatter.amountFormatter
         formatter.generatesDecimalNumbers = true
         formatter.minimumFractionDigits = 2
         formatter.maximumFractionDigits = 2
@@ -19,10 +19,10 @@ extension Decimal {
 }
 
 extension NumberFormatter {
-    static var currencyFormatter: NumberFormatter {
+    static var amountFormatter: NumberFormatter {
         let result = NumberFormatter()
-        result.numberStyle = .currency
-        result.isLenient = true
+        result.minimumFractionDigits = 2
+        result.maximumFractionDigits = 2
         return result
     }
 }

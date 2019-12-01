@@ -13,12 +13,14 @@ struct ChartRow: View {
     private let column: Int = 3
 
     var yearBill: Bill.YearBill
+    @Binding var dateStore: DateStore
+    @Binding var isPresented: Bool
 
     var body: some View {
         VStack() {
             HStack {
                 Text(yearBill.displayYear)
-                    .foregroundColor(Calendar.currentYear == yearBill.year ? .red : .black)
+                .foregroundColor(titleColor)
                     .font(.system(.title))
                     .fontWeight(.bold)
                 Spacer()
@@ -28,7 +30,6 @@ struct ChartRow: View {
                 self.createRow(row)
             }
         }
-        .padding()
     }
 
     // MARK: Components
@@ -36,23 +37,48 @@ struct ChartRow: View {
     private func createRow(_ row: Int) -> some View {
         HStack(spacing: 16) {
             ForEach(0..<column, id: \.self) { column in
-                ChartCell(monthBill: self.yearBill.monthBills[row * 3 + column], isCurrentYear: Calendar.currentYear == self.yearBill.year)
+                ChartCell(monthBill: self.getMonthBill(index: row * 3 + column), isCurrentYear: Calendar.currentYear == self.yearBill.year)
+                    .onTapGesture {
+                        self.dateStore.year = self.yearBill.year
+                        self.dateStore.month = self.getMonthBill(index: row * 3 + column).month
+                        self.isPresented.toggle()
+                }
             }
+        }
+    }
+
+    private func getMonthBill(index: Int) -> Bill.MonthBill {
+        self.yearBill.monthBills[index]
+    }
+
+    // MARK: Accessors
+
+    private var titleColor: Color {
+        if Calendar.currentYear == yearBill.year {
+            return .red
+        } else {
+            return Color(.label)
         }
     }
 }
 
+#if DEBUG
 struct ChartRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ChartRow(yearBill: Bill.YearBill.defaultValue(2019))
+            ChartRow(
+                yearBill: .defaultValue(2019),
+                dateStore: .constant(.defaultValue),
+                isPresented: .constant(false)
+            )
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-            ChartRow(yearBill: Bill.YearBill.defaultValue(2019))
+            ChartRow(
+                yearBill: .defaultValue(2019),
+                dateStore: .constant(.defaultValue),
+                isPresented: .constant(false)
+            )
                 .previewDevice(PreviewDevice(rawValue: "iPhone X"))
         }
     }
 }
-
-struct CalendarData {
-
-}
+#endif

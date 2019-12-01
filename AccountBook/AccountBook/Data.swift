@@ -30,6 +30,7 @@ func load<T: Decodable>(from fileName: String) -> T? {
         let decoder = JSONDecoder()
         return try decoder.decode(T.self, from: data)
     } catch {
+        return nil
         fatalError("Couldn't parse \(fileName) as \(T.self):\n\(error)")
     }
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9903140E238D8C810059CD5B /* ColorPicker.swift */; };
 		99031411238D930E0059CD5B /* DecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99031410238D930E0059CD5B /* DecimalField.swift */; };
 		99190EA42389064600F8E15E /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EA32389064600F8E15E /* Bill.swift */; };
 		99190EA72389080E00F8E15E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99190EA62389080E00F8E15E /* Date+Extension.swift */; };
@@ -27,6 +26,9 @@
 		99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD6923845BC300446823 /* HomeFooter.swift */; };
 		99D4AD722384638E00446823 /* AddingBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D4AD712384638E00446823 /* AddingBill.swift */; };
 		99E2E152239268620025742B /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E151239268620025742B /* UIApplication+Extension.swift */; };
+		99E2E158239379AE0025742B /* EditingBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E157239379AE0025742B /* EditingBill.swift */; };
+		99E2E15A23937D5D0025742B /* EditingColorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E15923937D5D0025742B /* EditingColorRow.swift */; };
+		99E2E15C239392430025742B /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2E15B239392430025742B /* ButtonModifier.swift */; };
 		99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94A2380290F006845D1 /* AppDelegate.swift */; };
 		99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E6E94C2380290F006845D1 /* SceneDelegate.swift */; };
 		99E6E95123802911006845D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95023802911006845D1 /* Assets.xcassets */; };
@@ -35,10 +37,10 @@
 		99F8CF402382FE1F00F4E20B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF3F2382FE1F00F4E20B /* Home.swift */; };
 		99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF4B23844E2700F4E20B /* BillRow.swift */; };
 		99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF502384506D00F4E20B /* HomeHeader.swift */; };
+		99FD4C592393C603009F87C9 /* ChartYearRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD4C582393C603009F87C9 /* ChartYearRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9903140E238D8C810059CD5B /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		99031410238D930E0059CD5B /* DecimalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalField.swift; sourceTree = "<group>"; };
 		99190EA32389064600F8E15E /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		99190EA62389080E00F8E15E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -58,6 +60,9 @@
 		99D4AD6923845BC300446823 /* HomeFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooter.swift; sourceTree = "<group>"; };
 		99D4AD712384638E00446823 /* AddingBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingBill.swift; sourceTree = "<group>"; };
 		99E2E151239268620025742B /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		99E2E157239379AE0025742B /* EditingBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingBill.swift; sourceTree = "<group>"; };
+		99E2E15923937D5D0025742B /* EditingColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingColorRow.swift; sourceTree = "<group>"; };
+		99E2E15B239392430025742B /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		99E6E9472380290F006845D1 /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E6E94A2380290F006845D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E6E94C2380290F006845D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		99F8CF3F2382FE1F00F4E20B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		99F8CF4B23844E2700F4E20B /* BillRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRow.swift; sourceTree = "<group>"; };
 		99F8CF502384506D00F4E20B /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		99FD4C582393C603009F87C9 /* ChartYearRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYearRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,8 @@
 		99894124239019D700C7899D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				99F8CF4D23844EF600F4E20B /* Supporting */,
+				996722AA2385989D00D0E6BC /* Models */,
+				99E2E156239379A00025742B /* EditingBill */,
 				9989412523901A0100C7899D /* Chart */,
 				99F8CF3E2382FDB000F4E20B /* Home */,
 				99D4AD6B23845F0E00446823 /* Adding */,
@@ -121,6 +128,7 @@
 				9989412823901AA900C7899D /* ChartView.swift */,
 				9989412A23901AFA00C7899D /* ChartRow.swift */,
 				9989412E239034E100C7899D /* ChartCell.swift */,
+				99FD4C582393C603009F87C9 /* ChartYearRow.swift */,
 			);
 			name = Chart;
 			sourceTree = "<group>";
@@ -129,10 +137,18 @@
 			isa = PBXGroup;
 			children = (
 				99D4AD712384638E00446823 /* AddingBill.swift */,
-				9903140E238D8C810059CD5B /* ColorPicker.swift */,
 				99BA6916238ED8EC00FBD3E1 /* BillColorRow.swift */,
 			);
 			name = Adding;
+			sourceTree = "<group>";
+		};
+		99E2E156239379A00025742B /* EditingBill */ = {
+			isa = PBXGroup;
+			children = (
+				99E2E157239379AE0025742B /* EditingBill.swift */,
+				99E2E15923937D5D0025742B /* EditingColorRow.swift */,
+			);
+			name = EditingBill;
 			sourceTree = "<group>";
 		};
 		99E6E93E2380290F006845D1 = {
@@ -156,8 +172,8 @@
 			children = (
 				99E6E95F23802D14006845D1 /* Delegate */,
 				99894124239019D700C7899D /* Views */,
+				99F8CF4D23844EF600F4E20B /* Supporting */,
 				99190EA5238907EE00F8E15E /* Extensions */,
-				996722AA2385989D00D0E6BC /* Models */,
 				99E6E96023802D30006845D1 /* Resource */,
 				99E6E95223802911006845D1 /* Preview Content */,
 			);
@@ -209,6 +225,7 @@
 				996722AD23859E4D00D0E6BC /* LineChart.swift */,
 				99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */,
 				99031410238D930E0059CD5B /* DecimalField.swift */,
+				99E2E15B239392430025742B /* ButtonModifier.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -285,10 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FD4C592393C603009F87C9 /* ChartYearRow.swift in Sources */,
 				996722AC23859E4300D0E6BC /* PieChart.swift in Sources */,
 				99190EA42389064600F8E15E /* Bill.swift in Sources */,
 				99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */,
+				99E2E15A23937D5D0025742B /* EditingColorRow.swift in Sources */,
 				99190EAD23894D9300F8E15E /* UserData.swift in Sources */,
+				99E2E15C239392430025742B /* ButtonModifier.swift in Sources */,
 				99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */,
 				99BA6919238EE2F200FBD3E1 /* Decimal+Extension.swift in Sources */,
 				99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */,
@@ -304,10 +324,10 @@
 				99E6E94D2380290F006845D1 /* SceneDelegate.swift in Sources */,
 				99D4AD722384638E00446823 /* AddingBill.swift in Sources */,
 				99190EB5238AE6BA00F8E15E /* SelectionCircle.swift in Sources */,
+				99E2E158239379AE0025742B /* EditingBill.swift in Sources */,
 				9989412B23901AFA00C7899D /* ChartRow.swift in Sources */,
 				99031411238D930E0059CD5B /* DecimalField.swift in Sources */,
 				99D4AD6A23845BC300446823 /* HomeFooter.swift in Sources */,
-				9903140F238D8C810059CD5B /* ColorPicker.swift in Sources */,
 				99E2E152239268620025742B /* UIApplication+Extension.swift in Sources */,
 				99190EA92389083100F8E15E /* Color+Extension.swift in Sources */,
 			);

@@ -37,10 +37,23 @@ final class UserData : ObservableObject {
         save(data: bills, to: billsData)
     }
 
+    func deleteBill(_ bill: Bill) {
+        guard let index = bills.firstIndex(where:  { $0.id == bill.id }) else { return }
+        bills.remove(at: index)
+        saveBills()
+    }
+
+    func editBill(_ bill: Bill) {
+        guard let index = bills.firstIndex(where:  { $0.id == bill.id }) else { return }
+        bills[index] = bill
+        saveBills()
+    }
+
     func getMonthBill(for month: Int, on year: Int) -> Bill.MonthBill {
         let bills = self.bills.filter {
             Calendar.current.component(.month, from: $0.date) == month && Calendar.current.component(.year, from: $0.date) == year
         }
+        .sorted { $0.date > $1.date }
         return Bill.MonthBill(month: month, bills: bills)
     }
 

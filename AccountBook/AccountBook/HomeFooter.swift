@@ -31,7 +31,9 @@ struct HomeFooter: View {
             self.showingAdding.toggle()
         }) {
             Text("Income")
-        }.sheet(isPresented: $showingAdding) {
+        }
+        .modifier(RedButton())
+        .sheet(isPresented: $showingAdding) {
             AddingBill(kind: .income)
                 .environmentObject(self.userData)
         }
@@ -42,7 +44,9 @@ struct HomeFooter: View {
             self.showingAdding.toggle()
         }) {
             Text("Spending")
-        }.sheet(isPresented: $showingAdding) {
+        }
+        .modifier(RedButton())
+        .sheet(isPresented: $showingAdding) {
             AddingBill(kind: .spending)
                 .environmentObject(self.userData)
         }

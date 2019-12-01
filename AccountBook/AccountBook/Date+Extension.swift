@@ -21,38 +21,24 @@ extension Calendar {
         let beginYear = Calendar.current.component(.year, from: Date.init(timeIntervalSince1970: 0))
         return (beginYear...currentYear).reversed().map { $0 }
     }
+
+    static var dateClosedRange: ClosedRange<Date> {
+        let min = Calendar.current.date(byAdding: .year, value: -70, to: Date())!
+        let max = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
+        return min...max
+    }
 }
 
 extension Date {
-
-    var displayDayFormat: String {
+    var displayWeakFormat: String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.dateFormat = "d"
-        return formatter.string(from: self)
-    }
-
-    var displayWeekFormat: String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        formatter.dateFormat = "d"
-        return formatter.string(from: self)
-    }
-
-    var displayMonthFormat: String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
         formatter.dateFormat = "MMMM d EEE"
         return formatter.string(from: self)
     }
 
     var displayYearFormat: String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
+        formatter.dateFormat = "MMM yyyy"
         return formatter.string(from: self)
     }
 

@@ -13,54 +13,60 @@ struct PieChart: View {
 
     var body: some View {
         GeometryReader { geometry in
-            // Color Circle
-            ForEach(self.slices.isEmpty ? ChartSlice.defaultValue : self.slices, id: \.self) { data in
+            if self.slices.isEmpty {
+                // Placeholder
+                Circle()
+                    .fill(Color.clear)
+                    .opacity(0.35)
+            } else {
+                // Color Circle
+                ForEach(self.slices, id: \.self) { slice in
+                    self.createPath(
+                        startRadians: slice.startRadians,
+                        endRadians: slice.endRadians,
+                        radius: min(geometry.size.width, geometry.size.height) / 2,
+                        on: geometry
+                    )
+                        .fill(slice.color)
+                }
+                // White Separator
+                if self.slices.count > 1 {
+                    ForEach(self.slices, id: \.self) { slice in
+                        self.createPath(
+                            startRadians: slice.endRadians - 0.02,
+                            endRadians: slice.endRadians,
+                            radius: min(geometry.size.width, geometry.size.height) / 2,
+                            on: geometry
+                        )
+                            .fill(Color(.systemBackground))
+                    }
+                }
+                // Middle background Circle
                 self.createPath(
-                    startAngle: Angle(radians: data.startAngle),
-                    endAngle: Angle(radians: data.endAngle),
-                    radius: min(geometry.size.width, geometry.size.height) / 2,
+                    startRadians: 0,
+                    endRadians: .pi * 2,
+                    radius: min(geometry.size.width, geometry.size.height) * 0.3,
                     on: geometry
                 )
-                    .fill(data.color)
-            }
-            // Middle white Circle
-            self.createPath(
-                startAngle: Angle(radians: 0),
-                endAngle: Angle(radians: .pi * 2),
-                radius: min(geometry.size.width, geometry.size.height) / 4,
-                on: geometry
-            )
-                .fill(Color.white)
-            // Placeholder
-            if self.slices.isEmpty {
-                Circle()
-                    .fill(Color.black)
-                    .opacity(0.35)
-
-                Text("No Bills")
-                    .foregroundColor(.white)
-                    .font(.system(.subheadline))
-                    .position(CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2))
+                    .fill(Color(.systemBackground))
             }
         }
     }
 
-    private func createPath(startAngle: Angle, endAngle: Angle, radius: CGFloat, on geometry: GeometryProxy) -> Path {
+    private func createPath(startRadians: Double, endRadians: Double, radius: CGFloat, on geometry: GeometryProxy) -> Path {
         let center = CGPoint(x: geometry.size.width / 2, y: geometry.size.height / 2)
         return Path { path in
             path.move(to: center)
             path.addArc(
                 center: center,
                 radius: radius,
-                startAngle: startAngle,
-                endAngle: endAngle,
+                startAngle: Angle(radians: startRadians),
+                endAngle: Angle(radians: endRadians),
                 clockwise: false
             )
             path.closeSubpath()
         }
     }
-
-
 }
 
 #if DEBUG

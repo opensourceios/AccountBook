@@ -22,7 +22,7 @@ struct Bill : Codable, Hashable, Identifiable {
     var color: BillColor
 
     static var defaultValue: Bill {
-        return Bill(id: UUID().uuidString, kind: .income, name: "Shopping", amount: 100.00, date: Date(), color: .red)
+        Bill(id: UUID().uuidString, kind: .income, name: "Shopping", amount: 100.00, date: Date(), color: .red)
     }
 }
 
@@ -39,6 +39,22 @@ extension Bill {
         var displayYear: String {
             "\(year)"
         }
+
+        var income: Decimal {
+            monthBills.reduce(0) { $0 + $1.income }
+        }
+
+        var spending: Decimal {
+            monthBills.reduce(0) { $0 + $1.spending }
+        }
+
+        var hasBills: Bool {
+            monthBills.first { !$0.bills.isEmpty } != nil
+        }
+
+        var chartSlices: [ChartSlice] {
+            ChartSlice.getChartSlices(for: monthBills.flatMap { $0.bills })
+        }
     }
 
     struct MonthBill : Hashable {
@@ -53,21 +69,20 @@ extension Bill {
             Calendar.current.shortMonthSymbols[month - 1]
         }
 
+        var income: Decimal {
+            bills.reduce(0) { $1.kind == .income ? ($0 + $1.amount) : $0 }
+        }
+
+        var spending: Decimal {
+            bills.reduce(0) { $1.kind == .spending ? ($0 + $1.amount) : $0 }
+        }
+
+        var hsaBills: Bool {
+            !bills.isEmpty
+        }
+
         var chartSlices: [ChartSlice] {
-            var billChart: [BillColor:[Bill]] = [:]
-            var totalAmount: Decimal = 0
-            bills.forEach {
-                totalAmount += $0.amount
-                billChart[$0.color]?.append($0)
-            }
-            let result = billChart.sorted { $0.key.sortKey < $1.key.sortKey }
-            var startPoint: Double = 0
-            return result.map { billChart in
-                let billAmount = billChart.value.reduce(0) { $0 + $1.amount }
-                let percent = billAmount / totalAmount
-                defer { startPoint += Double(truncating: percent as NSNumber) }
-                return ChartSlice(color: billChart.key.value, startPoint: startPoint, percent: Double(truncating: percent as NSNumber))
-            }
+            ChartSlice.getChartSlices(for: bills)
         }
     }
 }
@@ -78,6 +93,7 @@ enum BillColor : String, Codable, Hashable, CaseIterable {
     case yellow = "Yellow"
     case green = "Green"
     case blue = "Blue"
+    case pink = "Pink"
     case purple = "Purple"
     case gray = "Gray"
 
@@ -93,6 +109,8 @@ enum BillColor : String, Codable, Hashable, CaseIterable {
             return .green
         case .blue:
             return .blue
+        case .pink:
+            return .pink
         case .purple:
             return .purple
         case .gray:
@@ -112,10 +130,12 @@ enum BillColor : String, Codable, Hashable, CaseIterable {
             return 3
         case .blue:
             return 4
-        case .purple:
+        case .pink:
             return 5
-        case .gray:
+        case .purple:
             return 6
+        case .gray:
+            return 7
         }
     }
 }

@@ -24,13 +24,13 @@ struct ChartYearRow: View {
                 Divider()
                 HStack {
                     Text("Income:")
-                    Text("+\(yearBill.income.amountString)")
+                    Text(yearBill.income.getAmountString(with: .income))
                         .font(.system(.body))
                     Spacer()
                 }
                 HStack {
                     Text("Spending:")
-                    Text("-\(yearBill.spending.amountString)")
+                    Text(yearBill.spending.getAmountString(with: .spending))
                         .font(.system(.body))
                     Spacer()
                 }

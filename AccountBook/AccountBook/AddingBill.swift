@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AddingBill: View {
     @State private var billName: String = ""
-    @State private var billAmount: Decimal?
+    @State private var billAmount: String? = nil
     @State private var billColor: BillColor = .red
     @State private var billDate: Date = Date()
     @State private var isShowingAddingLabel = false
@@ -27,9 +27,8 @@ struct AddingBill: View {
                         .font(.system(.subheadline))
                 }
                 Section(header: Text("Amount")) {
-                    TextField("Amount", text: amount)
-                        .keyboardType(.numbersAndPunctuation)
-                        .font(.system(.largeTitle))
+                    AmountTextField(text: "Amount", value: $billAmount)
+                        .padding([ .top, .bottom ], 8)
                 }
                 Section(header: Text("Color")) {
                     ForEach(BillColor.allCases, id: \.self) { billColor in
@@ -45,6 +44,7 @@ struct AddingBill: View {
                         .labelsHidden()
                 }
             }
+            .modifier(AdaptsToKeyboard())
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Add Bill", displayMode: .inline)
             .navigationBarItems(leading: cancelButton, trailing: doneButton)
@@ -80,7 +80,7 @@ struct AddingBill: View {
             id: UUID().uuidString,
             kind: kind,
             name: billName,
-            amount: billAmount ?? 0,
+            amount: billAmount?.decimalValue ?? 0,
             date: billDate,
             color: billColor)
         userData.bills.append(bill)
@@ -89,23 +89,6 @@ struct AddingBill: View {
     }
 
     // MARK: Accessors
-
-    private var amount: Binding<String> {
-        Binding<String>(
-            get: {
-                if let billAmount = self.billAmount {
-                    return String(format: "%.02f", Double(truncating: billAmount as NSNumber))
-                } else {
-                    return ""
-                }
-        }) {
-            if let value = NumberFormatter.amountFormatter.number(from: $0) {
-                self.billAmount = value.decimalValue
-            } else {
-                self.billAmount = nil
-            }
-        }
-    }
 
     private var canDone: Bool {
         !billName.isEmpty && billAmount != nil

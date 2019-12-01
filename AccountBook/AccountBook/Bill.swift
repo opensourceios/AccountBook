@@ -24,6 +24,10 @@ struct Bill : Codable, Hashable, Identifiable {
     static var defaultValue: Bill {
         Bill(id: UUID().uuidString, kind: .income, name: "Shopping", amount: 100.00, date: Date(), color: .red)
     }
+
+    var displayAmountString: String {
+        amount.getAmountString(with: kind)
+    }
 }
 
 extension Bill {

@@ -38,6 +38,9 @@
 		99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF4B23844E2700F4E20B /* BillRow.swift */; };
 		99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF502384506D00F4E20B /* HomeHeader.swift */; };
 		99FD4C592393C603009F87C9 /* ChartYearRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD4C582393C603009F87C9 /* ChartYearRow.swift */; };
+		99FD4C5B23940B30009F87C9 /* AdaptsToKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD4C5A23940B30009F87C9 /* AdaptsToKeyboard.swift */; };
+		99FD4C5D23941D2C009F87C9 /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD4C5C23941D2C009F87C9 /* AmountTextField.swift */; };
+		99FD4C5F2394280F009F87C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD4C5E2394280F009F87C9 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		99F8CF4B23844E2700F4E20B /* BillRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRow.swift; sourceTree = "<group>"; };
 		99F8CF502384506D00F4E20B /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 		99FD4C582393C603009F87C9 /* ChartYearRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartYearRow.swift; sourceTree = "<group>"; };
+		99FD4C5A23940B30009F87C9 /* AdaptsToKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptsToKeyboard.swift; sourceTree = "<group>"; };
+		99FD4C5C23941D2C009F87C9 /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
+		99FD4C5E2394280F009F87C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 				99190EA82389083100F8E15E /* Color+Extension.swift */,
 				99BA6918238EE2F200FBD3E1 /* Decimal+Extension.swift */,
 				99E2E151239268620025742B /* UIApplication+Extension.swift */,
+				99FD4C5E2394280F009F87C9 /* String+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +233,8 @@
 				99190EB4238AE6BA00F8E15E /* SelectionCircle.swift */,
 				99031410238D930E0059CD5B /* DecimalField.swift */,
 				99E2E15B239392430025742B /* ButtonModifier.swift */,
+				99FD4C5A23940B30009F87C9 /* AdaptsToKeyboard.swift */,
+				99FD4C5C23941D2C009F87C9 /* AmountTextField.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -305,9 +314,11 @@
 				99FD4C592393C603009F87C9 /* ChartYearRow.swift in Sources */,
 				996722AC23859E4300D0E6BC /* PieChart.swift in Sources */,
 				99190EA42389064600F8E15E /* Bill.swift in Sources */,
+				99FD4C5D23941D2C009F87C9 /* AmountTextField.swift in Sources */,
 				99E6E94B2380290F006845D1 /* AppDelegate.swift in Sources */,
 				99E2E15A23937D5D0025742B /* EditingColorRow.swift in Sources */,
 				99190EAD23894D9300F8E15E /* UserData.swift in Sources */,
+				99FD4C5F2394280F009F87C9 /* String+Extension.swift in Sources */,
 				99E2E15C239392430025742B /* ButtonModifier.swift in Sources */,
 				99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */,
 				99BA6919238EE2F200FBD3E1 /* Decimal+Extension.swift in Sources */,
@@ -317,6 +328,7 @@
 				996722AE23859E4D00D0E6BC /* LineChart.swift in Sources */,
 				99BA6917238ED8EC00FBD3E1 /* BillColorRow.swift in Sources */,
 				99190EAB2389357C00F8E15E /* Data.swift in Sources */,
+				99FD4C5B23940B30009F87C9 /* AdaptsToKeyboard.swift in Sources */,
 				9989412F239034E100C7899D /* ChartCell.swift in Sources */,
 				9989412D2390226500C7899D /* ChartSlice.swift in Sources */,
 				99190EAF23894E4500F8E15E /* Profile.swift in Sources */,

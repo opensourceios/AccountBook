@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EditingBill: View {
-
+    @State private var billAmount: String? = nil
     @Environment(\.presentationMode) private var presentation
     @EnvironmentObject private var userData: UserData
     @State var bill: Bill
@@ -22,9 +22,12 @@ struct EditingBill: View {
                         .font(.system(.subheadline))
                 }
                 Section(header: Text("Amount")) {
-                    TextField("Amount", text: amount)
-                        .keyboardType(.numbersAndPunctuation)
-                        .font(.system(.largeTitle))
+                    AmountTextField(text: "Amount", value: Binding(get: {
+                        return self.billAmount ?? self.bill.displayAmountString
+                    }, set: {
+                        self.billAmount = $0
+                    }))
+                        .padding([ .top, .bottom ], 8)
                 }
                 Section(header: Text("Color")) {
                     EditingColorRow(billColor: self.$bill.color)
@@ -55,6 +58,7 @@ struct EditingBill: View {
 
     private var doneButton: some View {
         Button(action: {
+            self.bill.amount = self.billAmount?.decimalValue ?? 0
             self.userData.editBill(self.bill)
             self.presentation.wrappedValue.dismiss()
         }) {
@@ -66,21 +70,8 @@ struct EditingBill: View {
 
     // MARK: Accessors
 
-    private var amount: Binding<String> {
-        Binding<String>(
-            get: {
-                return String(format: "%.02f", Double(truncating: self.bill.amount as NSNumber))
-        }) {
-            if let value = NumberFormatter.amountFormatter.number(from: $0) {
-                self.bill.amount = value.decimalValue
-            } else {
-                self.bill.amount = 0
-            }
-        }
-    }
-
     private var canDone: Bool {
-        !bill.name.isEmpty && bill.amount != 0
+        !bill.name.isEmpty && billAmount != nil
     }
 
     private var doneButtonColor: Color {

@@ -9,12 +9,16 @@
 import Foundation
 
 extension Decimal {
-    var currencyString: String {
+    func getAmountString(with kind: Bill.Kind) -> String {
         let formatter = NumberFormatter.amountFormatter
-        formatter.generatesDecimalNumbers = true
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: self as NSDecimalNumber) ?? "0.00"
+        let amountString = formatter.string(from: self as NSNumber) ?? "0.00"
+        guard self > 0 else { return amountString }
+        switch kind {
+        case .income:
+            return "+" + amountString
+        case .spending:
+            return "-" + amountString
+        }
     }
 }
 

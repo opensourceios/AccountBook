@@ -66,9 +66,3 @@ final class UserData : ObservableObject {
 extension UserData {
 
 }
-
-extension Decimal {
-    var amountString: String {
-        return String(format: "%.02f", Double(truncating: self as NSNumber))
-    }
-}

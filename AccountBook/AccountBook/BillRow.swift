@@ -20,7 +20,7 @@ struct BillRow : View {
                 .frame(width: 2, height: 44)
             Text(bill.name)
             Spacer()
-            Text(displayAmount)
+            Text(bill.displayAmountString)
         }
         .onLongPressGesture {
             let feedback = UIImpactFeedbackGenerator(style: .light)
@@ -33,18 +33,6 @@ struct BillRow : View {
                 .environmentObject(self.userData)
         }
     }
-
-    // MARK: Accessors
-
-    var displayAmount: String {
-        switch bill.kind {
-        case .income:
-            return "+\(bill.amount.currencyString)"
-        case .spending:
-            return "-\(bill.amount.currencyString)"
-        }
-    }
-
 }
 
 struct BillRow_Previews: PreviewProvider {

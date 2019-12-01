@@ -19,7 +19,7 @@ struct HomeHeader: View {
                     Text("Income")
                         .foregroundColor(Color(.secondaryLabel))
                         .font(.system(.headline))
-                    Text("+\(amount.income.amountString)")
+                    Text(amount.income.getAmountString(with: .income))
                         .font(.system(.title))
                 }
                 .frame(maxWidth: .infinity)
@@ -29,7 +29,7 @@ struct HomeHeader: View {
                     Text("Spending")
                         .foregroundColor(Color(.secondaryLabel))
                         .font(.system(.headline))
-                    Text("-\(amount.spending.amountString)")
+                    Text(amount.spending.getAmountString(with: .spending))
                         .font(.system(.title))
                 }
                 .frame(maxWidth: .infinity)

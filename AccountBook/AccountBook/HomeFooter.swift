@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct HomeFooter: View {
-    @State private var showingAdding = false
+    @State private var showingAddingIncome = false
+    @State private var showingAddingSpending = false
 
     @EnvironmentObject var userData: UserData
 
@@ -28,12 +29,12 @@ struct HomeFooter: View {
 
     private var incomeButton: some View {
         Button(action: {
-            self.showingAdding.toggle()
+            self.showingAddingIncome.toggle()
         }) {
             Text("Income")
         }
         .modifier(RedButton())
-        .sheet(isPresented: $showingAdding) {
+        .sheet(isPresented: $showingAddingIncome) {
             AddingBill(kind: .income)
                 .environmentObject(self.userData)
         }
@@ -41,12 +42,12 @@ struct HomeFooter: View {
 
     private var spendingButton: some View {
         Button(action: {
-            self.showingAdding.toggle()
+            self.showingAddingSpending.toggle()
         }) {
             Text("Spending")
         }
         .modifier(RedButton())
-        .sheet(isPresented: $showingAdding) {
+        .sheet(isPresented: $showingAddingSpending) {
             AddingBill(kind: .spending)
                 .environmentObject(self.userData)
         }

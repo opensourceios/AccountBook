@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct EditingBill: View {
+struct EditingBill: View, BillExaminer {
     @Environment(\.presentationMode) private var presentation
     @EnvironmentObject private var userData: UserData
     @State var bill: Bill
@@ -63,19 +63,13 @@ struct EditingBill: View {
             Text("Done")
         }
         .foregroundColor(doneButtonColor)
-        .disabled(!canDone)
+        .disabled(!isPassed)
     }
 
     // MARK: Accessors
 
-    private var canDone: Bool {
-        guard let billName = billName, !billName.isEmpty else { return false }
-        guard let billAmount = billAmount, !billAmount.isEmpty else { return false }
-        return true
-    }
-
     private var doneButtonColor: Color {
-        if canDone {
+        if isPassed {
             return .red
         } else {
             return Color(.secondaryLabel)

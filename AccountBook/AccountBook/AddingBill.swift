@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct AddingBill: View {
-    @State private var billName: String? = nil
-    @State private var billAmount: String? = nil
+struct AddingBill: View, BillExaminer {
+    @State var billName: String? = nil
+    @State var billAmount: String? = nil
     @State private var billColor: BillColor = .red
     @State private var billDate: Date = Date()
     @State private var isShowingAddingLabel = false
@@ -70,7 +70,7 @@ struct AddingBill: View {
             Text("Done")
         }
         .foregroundColor(doneButtonColor)
-        .disabled(!canDone)
+        .disabled(!isPassed)
     }
 
     // MARK: Interaction
@@ -90,14 +90,8 @@ struct AddingBill: View {
 
     // MARK: Accessors
 
-    private var canDone: Bool {
-        guard let billName = billName, !billName.isEmpty else { return false }
-        guard let billAmount = billAmount, !billAmount.isEmpty else { return false }
-        return true
-    }
-
     private var doneButtonColor: Color {
-        if canDone {
+        if isPassed {
             return .red
         } else {
             return Color(.secondaryLabel)
@@ -123,5 +117,3 @@ struct ListOffsetKey : PreferenceKey {
         value.append(contentsOf: nextValue())
     }
 }
-
-protocol 

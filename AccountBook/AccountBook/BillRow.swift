@@ -22,14 +22,18 @@ struct BillRow : View {
             Spacer()
             Text(bill.displayAmountString)
         }
-        .onLongPressGesture {
+        .onTapGesture {
             let feedback = UIImpactFeedbackGenerator(style: .light)
             feedback.prepare()
             feedback.impactOccurred()
             self.isShowingEditingBill.toggle()
         }
         .sheet(isPresented: $isShowingEditingBill) {
-            EditingBill(bill: self.bill, billAmount: self.bill.amount.amountString)
+            EditingBill(
+                bill: self.bill,
+                billName: self.bill.name,
+                billAmount: self.bill.amount.amountString
+            )
                 .environmentObject(self.userData)
         }
     }

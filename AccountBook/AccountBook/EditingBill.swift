@@ -12,21 +12,18 @@ struct EditingBill: View {
     @Environment(\.presentationMode) private var presentation
     @EnvironmentObject private var userData: UserData
     @State var bill: Bill
+    @State var billName: String?
     @State var billAmount: String?
 
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Name")) {
-                    TextField("Name", text: $bill.name)
+                    ASTextField(placeholder: "Name", value: $billName)
                         .font(.system(.subheadline))
                 }
                 Section(header: Text("Amount")) {
-                    AmountTextField(text: "Amount", value: Binding(get: {
-                        return self.billAmount
-                    }, set: {
-                        self.billAmount = $0
-                    }))
+                    AmountTextField(placeholder: "Amount", value: $billAmount)
                         .padding([ .top, .bottom ], 8)
                 }
                 Section(header: Text("Color")) {
@@ -58,6 +55,7 @@ struct EditingBill: View {
 
     private var doneButton: some View {
         Button(action: {
+            self.bill.name = self.billName ?? ""
             self.bill.amount = self.billAmount?.decimalValue ?? 0
             self.userData.editBill(self.bill)
             self.presentation.wrappedValue.dismiss()
@@ -71,7 +69,9 @@ struct EditingBill: View {
     // MARK: Accessors
 
     private var canDone: Bool {
-        !bill.name.isEmpty && billAmount != nil
+        guard let billName = billName, !billName.isEmpty else { return false }
+        guard let billAmount = billAmount, !billAmount.isEmpty else { return false }
+        return true
     }
 
     private var doneButtonColor: Color {

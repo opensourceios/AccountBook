@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AddingBill: View {
-    @State private var billName: String = ""
+    @State private var billName: String? = nil
     @State private var billAmount: String? = nil
     @State private var billColor: BillColor = .red
     @State private var billDate: Date = Date()
@@ -23,11 +23,11 @@ struct AddingBill: View {
         NavigationView {
             List {
                 Section(header: Text("Name")) {
-                    TextField("Name", text: $billName)
+                    ASTextField(placeholder: "Name", value: $billName)
                         .font(.system(.subheadline))
                 }
                 Section(header: Text("Amount")) {
-                    AmountTextField(text: "Amount", value: $billAmount)
+                    AmountTextField(placeholder: "Amount", value: $billAmount)
                         .padding([ .top, .bottom ], 8)
                 }
                 Section(header: Text("Color")) {
@@ -79,7 +79,7 @@ struct AddingBill: View {
         let bill = Bill(
             id: UUID().uuidString,
             kind: kind,
-            name: billName,
+            name: billName ?? "",
             amount: billAmount?.decimalValue ?? 0,
             date: billDate,
             color: billColor)
@@ -91,7 +91,9 @@ struct AddingBill: View {
     // MARK: Accessors
 
     private var canDone: Bool {
-        !billName.isEmpty && billAmount != nil
+        guard let billName = billName, !billName.isEmpty else { return false }
+        guard let billAmount = billAmount, !billAmount.isEmpty else { return false }
+        return true
     }
 
     private var doneButtonColor: Color {
@@ -122,3 +124,4 @@ struct ListOffsetKey : PreferenceKey {
     }
 }
 
+protocol 

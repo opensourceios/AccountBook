@@ -1,5 +1,5 @@
 //
-//  AmountTextField.swift
+//  ASTextField.swift
 //  AccountBook
 //
 //  Created by Mason Sun on 2019/12/2.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AmountTextField : UIViewRepresentable {
+struct ASTextField : UIViewRepresentable {
     var placeholder: String
     @Binding var value: String?
 
@@ -19,20 +19,19 @@ struct AmountTextField : UIViewRepresentable {
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
         textField.delegate = context.coordinator
-        textField.font = .systemFont(ofSize: 30, weight: .semibold)
-        textField.keyboardType = .decimalPad
+        textField.font = .systemFont(ofSize: 17, weight: .regular)
         return textField
     }
 
-    func updateUIView(_ textField: UITextField, context: UIViewRepresentableContext<AmountTextField>) {
+    func updateUIView(_ textField: UITextField, context: UIViewRepresentableContext<ASTextField>) {
         textField.text = value
         textField.placeholder = placeholder
     }
 
     class Coordinator : NSObject, UITextFieldDelegate {
-        var textField: AmountTextField
+        var textField: ASTextField
 
-        init(_ textField: AmountTextField) {
+        init(_ textField: ASTextField) {
             self.textField = textField
         }
 
@@ -42,26 +41,22 @@ struct AmountTextField : UIViewRepresentable {
         }
 
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if textField.text?.contains(".") == true && string == "." {
-                self.textField.value = textField.text
-                return false
+            if let text = textField.text, let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+                self.textField.value = updatedText
             } else {
-                if let text = textField.text, let textRange = Range(range, in: text) {
-                    let updatedText = text.replacingCharacters(in: textRange, with: string)
-                    self.textField.value = updatedText
-                } else {
-                    self.textField.value = textField.text
-                }
-                return true
+                self.textField.value = textField.text
             }
+            return true
         }
     }
 }
 
 #if DEBUG
-struct AmountTextField_Previews: PreviewProvider {
+struct ASTextField_Previews : PreviewProvider {
     static var previews: some View {
-        AmountTextField(placeholder: "Amount", value: .constant(""))
+        ASTextField(placeholder: "Amount", value: .constant(""))
     }
 }
 #endif
+

@@ -20,6 +20,10 @@ extension Decimal {
             return "-" + amountString
         }
     }
+
+    var amountString: String {
+        return NumberFormatter.amountFormatter.string(from: self as NSNumber) ?? "0.00"
+    }
 }
 
 extension NumberFormatter {

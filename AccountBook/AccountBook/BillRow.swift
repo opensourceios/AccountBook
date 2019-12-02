@@ -29,7 +29,7 @@ struct BillRow : View {
             self.isShowingEditingBill.toggle()
         }
         .sheet(isPresented: $isShowingEditingBill) {
-            EditingBill(bill: self.bill)
+            EditingBill(bill: self.bill, billAmount: self.bill.amount.amountString)
                 .environmentObject(self.userData)
         }
     }

@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct EditingBill: View {
-    @State private var billAmount: String? = nil
     @Environment(\.presentationMode) private var presentation
     @EnvironmentObject private var userData: UserData
     @State var bill: Bill
+    @State var billAmount: String?
 
     var body: some View {
         NavigationView {
@@ -23,7 +23,7 @@ struct EditingBill: View {
                 }
                 Section(header: Text("Amount")) {
                     AmountTextField(text: "Amount", value: Binding(get: {
-                        return self.billAmount ?? self.bill.displayAmountString
+                        return self.billAmount
                     }, set: {
                         self.billAmount = $0
                     }))
@@ -87,14 +87,14 @@ struct EditingBill: View {
 struct EditingBill_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EditingBill(bill: Bill.defaultValue)
+            EditingBill(bill: Bill.defaultValue, billAmount: Bill.defaultValue.amount.amountString)
                 .environmentObject(UserData())
 
-            EditingBill(bill: Bill.defaultValue)
+            EditingBill(bill: Bill.defaultValue, billAmount: Bill.defaultValue.amount.amountString)
                 .environmentObject(UserData())
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
 
-            EditingBill(bill: Bill.defaultValue)
+            EditingBill(bill: Bill.defaultValue, billAmount: Bill.defaultValue.amount.amountString)
             .environmentObject(UserData())
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 pro Max"))
         }

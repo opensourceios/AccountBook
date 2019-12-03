@@ -35,8 +35,15 @@ struct ChartYearRow: View {
                     Spacer()
                 }
             }
-            PieChart(slices: yearBill.chartSlices)
-            .aspectRatio(contentMode: .fit)
+            HStack(alignment: .top, spacing: 16) {
+                VStack {
+                    ForEach(yearBill.chartSlices, id: \.self) { slice in
+                        ChartSliceRow(slice: slice)
+                    }
+                }
+                PieChart(slices: yearBill.chartSlices)
+                    .aspectRatio(contentMode: .fit)
+            }
         }
     }
 

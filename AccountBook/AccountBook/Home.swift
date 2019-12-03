@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Home: View {
     @State private var isShowingChartView: Bool = false
+    @State private var isShowingAbout: Bool = false
     @State private var dateStore = DateStore(year: Calendar.currentYear, month: Calendar.currentMonth)
     @EnvironmentObject private var userData: UserData
 
@@ -34,13 +35,13 @@ struct Home: View {
                 HomeFooter().environmentObject(userData)
             }
             .navigationBarTitle("\(dateStore.displayString)", displayMode: .inline)
-            .navigationBarItems(leading: diagramButton, trailing: settingsButton)
+            .navigationBarItems(leading: chartButton, trailing: aboutButton)
         }
     }
 
     // MARK: Components
 
-    private var diagramButton: some View {
+    private var chartButton: some View {
         Button(action: {
             self.isShowingChartView.toggle()
         }) {
@@ -53,13 +54,16 @@ struct Home: View {
         }
     }
 
-    private var settingsButton: some View {
+    private var aboutButton: some View {
         Button(action: {
-
+            self.isShowingAbout.toggle()
         }) {
-            Text("Settings")
+            Text("About")
         }
         .modifier(RedButton())
+        .sheet(isPresented: $isShowingAbout) {
+            About()
+        }
     }
 
     // MARK: Interaction

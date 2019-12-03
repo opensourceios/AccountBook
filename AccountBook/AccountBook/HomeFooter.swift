@@ -15,14 +15,16 @@ struct HomeFooter: View {
     @EnvironmentObject var userData: UserData
 
     var body: some View {
-        HStack {
-            incomeButton
-            .frame(minWidth: 0, maxWidth: .infinity)
-            spendingButton
-            .frame(minWidth: 0, maxWidth: .infinity)
+        VStack {
+            Divider()
+            HStack {
+                incomeButton
+                .frame(minWidth: 0, maxWidth: .infinity)
+                spendingButton
+                .frame(minWidth: 0, maxWidth: .infinity)
+            }
+            .frame(height: 44)
         }
-        .frame(height: 44)
-//        .padding([ .leading, .trailing ], 16)
     }
 
     // MARK: Components

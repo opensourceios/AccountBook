@@ -18,14 +18,14 @@ struct ASTextField : UIViewRepresentable {
 
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
+        textField.text = value
+        textField.placeholder = placeholder
         textField.delegate = context.coordinator
         textField.font = .systemFont(ofSize: 17, weight: .regular)
         return textField
     }
 
     func updateUIView(_ textField: UITextField, context: UIViewRepresentableContext<ASTextField>) {
-        textField.text = value
-        textField.placeholder = placeholder
     }
 
     class Coordinator : NSObject, UITextFieldDelegate {

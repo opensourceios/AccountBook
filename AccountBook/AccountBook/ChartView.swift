@@ -22,7 +22,7 @@ struct ChartView: View {
                     .padding(EdgeInsets(top: 16, leading: 8, bottom: 0, trailing: 8))
                 Picker(selection: $kind, label: Text("")) {
                     ForEach(Kind.allCases, id: \.self) { kind in
-                        Text(kind.rawValue)
+                        Text(kind.value)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -90,8 +90,17 @@ struct ChartView_Previews: PreviewProvider {
 #endif
 
 extension ChartView {
-    enum Kind : String, CaseIterable {
-        case month = "Month"
-        case year = "Year"
+    enum Kind: CaseIterable {
+        case month
+        case year
+
+        var value: LocalizedStringKey {
+            switch self {
+            case .month:
+                return "Month"
+            case .year:
+                return "Year"
+            }
+        }
     }
 }

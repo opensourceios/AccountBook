@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  AccountBook
+
+  Created by Mason Sun on 2019/12/5.
+  Copyright © 2019 Mason Sun. All rights reserved.
+*/
+
+"About" = "关于";
+
+"Amount" = "金额";
+
+"Cancel" = "取消";
+
+"Color" = "颜色";
+
+"Chart" = "图表";
+
+"Close" = "关闭";
+
+"Current Version" = "当前版本";
+
+"Date" = "日期";
+
+"Done" = "完成";
+
+"Income" = "收入";
+
+"Income:" = "收入:";
+
+"Month" = "月";
+
+"Name" = "名称";
+
+"Spending" = "支出";
+
+"Spending:" = "支出:";
+
+"Year" = "年";
+
+"QQ Group: 341207494" = "QQ群: 341207494";
+
+"Email: mason.sunjiabin@gmail.com" = "邮箱: mason.sunjiabin@gmail.com";
+
+"Comments and Feedback" = "意见与反馈";
+
+"You're welcome to make any comments on this APP" = "欢迎您对这个APP提出宝贵意见";

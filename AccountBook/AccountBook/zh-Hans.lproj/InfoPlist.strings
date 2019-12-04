@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  AccountBook
+
+  Created by Mason Sun on 2019/12/5.
+  Copyright © 2019 Mason Sun. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "极简账单";

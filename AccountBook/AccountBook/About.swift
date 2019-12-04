@@ -13,22 +13,20 @@ struct About: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 16) {
-                VStack(spacing: 4) {
+            VStack(alignment: .center, spacing: 24) {
+                Image("Icon-60")
+                    .cornerRadius(8)
+                HStack(spacing: 4) {
                     Text("Current Version")
-                        .modifier(TitleText())
                     Text("1.0")
                 }
-                VStack(spacing: 4) {
+                VStack(spacing: 16) {
                     Text("Comments and Feedback")
-                        .modifier(TitleText())
                     Text("QQ Group: 341207494")
+                    Text("Email: mason.sunjiabin@gmail.com")
+                    Text("You're welcome to make any comments on this APP")
+                    .multilineTextAlignment(.center)
                 }
-                VStack {
-                    Text("You're welcome to make any comments on my product.")
-                        .multilineTextAlignment(.center)
-                }
-                Spacer()
             }
             .padding()
             .navigationBarTitle("About", displayMode: .inline)
@@ -50,7 +48,7 @@ extension About {
     struct TitleText : ViewModifier {
         func body(content: Content) -> some View {
             content
-                .font(.system(.headline))
+                .font(.system(.body))
         }
     }
 

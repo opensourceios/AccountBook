@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  AccountBook
+
+  Created by Mason Sun on 2019/12/5.
+  Copyright © 2019 Mason Sun. All rights reserved.
+*/
+
+"About" = "About";
+
+"Amount" = "Amount";
+
+"Cancel" = "Cancel";
+
+"Color" = "Color";
+
+"Chart" = "Chart";
+
+"Close" = "Close";
+
+"Current Version" = "Current Version";
+
+"Date" = "Date";
+
+"Done" = "Done";
+
+"Income" = "Income";
+
+"Income:" = "Income:";
+
+"Month" = "Month";
+
+"Name" = "Name";
+
+"Spending" = "Spending";
+
+"Spending:" = "Spending:";
+
+"Year" = "Year";
+
+"QQ Group: 341207494" = "QQ Group: 341207494";
+
+"Email: mason.sunjiabin@gmail.com" = "Email: mason.sunjiabin@gmail.com";
+
+"Comments and Feedback" = "Comments and Feedback";
+
+"You're welcome to make any comments on this APP" = "You're welcome to make any comments on this APP";

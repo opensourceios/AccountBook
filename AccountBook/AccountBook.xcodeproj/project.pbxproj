@@ -70,7 +70,7 @@
 		99E2E157239379AE0025742B /* EditingBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingBill.swift; sourceTree = "<group>"; };
 		99E2E15923937D5D0025742B /* EditingColorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingColorRow.swift; sourceTree = "<group>"; };
 		99E2E15B239392430025742B /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
-		99E6E9472380290F006845D1 /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99E6E9472380290F006845D1 /* Simple Bill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Bill.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E6E94A2380290F006845D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E6E94C2380290F006845D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		99E6E95023802911006845D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		99E6E9482380290F006845D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99E6E9472380290F006845D1 /* AccountBook.app */,
+				99E6E9472380290F006845D1 /* Simple Bill.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 			);
 			name = AccountBook;
 			productName = AccountBook;
-			productReference = 99E6E9472380290F006845D1 /* AccountBook.app */;
+			productReference = 99E6E9472380290F006845D1 /* Simple Bill.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -512,7 +512,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Mason.AccountBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Bill";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,7 +534,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Mason.AccountBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Bill";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

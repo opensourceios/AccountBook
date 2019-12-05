@@ -10,6 +10,10 @@
 
 "Amount" = "Amount";
 
+"Add Income" = "Add Income";
+
+"Add Spending" = "Add Spending";
+
 "Cancel" = "Cancel";
 
 "Color" = "Color";
@@ -23,6 +27,8 @@
 "Date" = "Date";
 
 "Done" = "Done";
+
+"Edit Bill" = "Edit Bill";
 
 "Income" = "Income";
 

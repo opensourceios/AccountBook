@@ -17,7 +17,6 @@ struct HomeHeader: View {
             HStack {
                 VStack(alignment: .center, spacing: 4) {
                     Text("Income")
-                        .foregroundColor(Color(.secondaryLabel))
                         .font(.system(.headline))
                     Text(amount.income.getAmountString(with: .income))
                         .font(.system(.title))
@@ -27,7 +26,6 @@ struct HomeHeader: View {
             HStack {
                 VStack(alignment: .center, spacing: 4) {
                     Text("Spending")
-                        .foregroundColor(Color(.secondaryLabel))
                         .font(.system(.headline))
                     Text(amount.spending.getAmountString(with: .spending))
                         .font(.system(.title))

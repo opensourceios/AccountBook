@@ -10,6 +10,10 @@
 
 "Amount" = "金额";
 
+"Add Income" = "添加收入";
+
+"Add Spending" = "添加支出";
+
 "Cancel" = "取消";
 
 "Color" = "颜色";
@@ -23,6 +27,8 @@
 "Date" = "日期";
 
 "Done" = "完成";
+
+"Edit Bill" = "编辑账单";
 
 "Income" = "收入";
 

@@ -46,7 +46,7 @@ struct AddingBill: View, BillExaminer {
             }
             .modifier(AdaptsToKeyboard())
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("Add Bill", displayMode: .inline)
+            .navigationBarTitle(title, displayMode: .inline)
             .navigationBarItems(leading: cancelButton, trailing: doneButton)
         }
     }
@@ -95,6 +95,15 @@ struct AddingBill: View, BillExaminer {
             return .red
         } else {
             return Color(.secondaryLabel)
+        }
+    }
+
+    private var title: LocalizedStringKey {
+        switch kind {
+        case.income:
+            return "Add Income"
+        case .spending:
+            return "Add Spending"
         }
     }
 }

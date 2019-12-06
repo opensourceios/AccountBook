@@ -58,3 +58,49 @@ func save<T: Encodable>(data: T, to fileName: String) {
         fatalError("Couldn't save \(T.self) to \(fileName):\n\(error)")
     }
 }
+
+let testBills = [
+    Bill(id: "0", kind: .spending, name: "购物", amount: 888, date: Date(), color: .green),
+    Bill(id: "1", kind: .spending, name: "午饭", amount: 20, date: Date(), color: .orange),
+    Bill(id: "2", kind: .spending, name: "晚饭", amount: 25, date: Date(), color: .orange),
+    Bill(id: "3", kind: .spending, name: "看电影", amount: 88, date: Date(), color: .green),
+
+    Bill(id: "4", kind: .spending, name: "买书", amount: 288, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .green),
+    Bill(id: "5", kind: .income, name: "卖掉闲置的iPad", amount: 6000, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .red),
+    Bill(id: "6", kind: .income, name: "工资", amount: 8888, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .blue),
+    Bill(id: "7", kind: .spending, name: "午饭", amount: 20, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .orange),
+    Bill(id: "8", kind: .spending, name: "晚饭", amount: 28, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .orange),
+    Bill(id: "9", kind: .spending, name: "房租", amount: 3000, date: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, color: .purple),
+
+] + randomMonthBills + randomYearBills
+
+var randomMonthBills: [Bill] {
+    var bills: [Bill] = []
+    for i in 1...11 {
+        for color in BillColor.allCases {
+            switch color {
+            case .red, .blue, .orange, .yellow:
+                bills.append(Bill(id: "", kind: .income, name: "", amount: Decimal(Int.random(in: 1000...5000)), date: Calendar.current.date(byAdding: .month, value: -i, to: Date())!, color: color))
+            case .gray, .purple, .green, .pink:
+                bills.append(Bill(id: "", kind: .spending, name: "", amount: Decimal(Int.random(in: 500...1000)), date: Calendar.current.date(byAdding: .month, value: -i, to: Date())!, color: color))
+            }
+        }
+    }
+    return bills
+}
+
+var randomYearBills: [Bill] {
+    var bills: [Bill] = []
+    let date = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
+    for i in 1...11 {
+        for color in BillColor.allCases {
+            switch color {
+            case .red, .blue, .orange, .yellow:
+                bills.append(Bill(id: "", kind: .income, name: "", amount: Decimal(Int.random(in: 1000...5000)), date: Calendar.current.date(byAdding: .month, value: -i, to: date)!, color: color))
+            case .gray, .purple, .green, .pink:
+                bills.append(Bill(id: "", kind: .spending, name: "", amount: Decimal(Int.random(in: 500...1000)), date: Calendar.current.date(byAdding: .month, value: -i, to: date)!, color: color))
+            }
+        }
+    }
+    return bills
+}

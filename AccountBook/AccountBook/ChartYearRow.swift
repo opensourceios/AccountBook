@@ -35,7 +35,7 @@ struct ChartYearRow: View {
                     Spacer()
                 }
             }
-            HStack(alignment: .top, spacing: 60) {
+            HStack(alignment: .top, spacing: 32) {
                 VStack(alignment: .leading) {
                     ForEach(yearBill.chartSlices, id: \.self) { slice in
                         ChartSliceRow(slice: slice)

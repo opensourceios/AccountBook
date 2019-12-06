@@ -18,7 +18,7 @@ struct Home: View {
         NavigationView {
             VStack {
                 HomeHeader(amount: amount)
-                    .padding(EdgeInsets(top: 16, leading: 8, bottom: 0, trailing: 8))
+                    .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                 List {
                     ForEach(0..<displayBills.count, id: \.self) { section in
                         Section(header: Text(self.displayBills[section].first?.date.displayWeakFormat ?? "")) {

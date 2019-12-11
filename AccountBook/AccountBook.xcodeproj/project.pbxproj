@@ -36,6 +36,7 @@
 		99E6E95123802911006845D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95023802911006845D1 /* Assets.xcassets */; };
 		99E6E95423802911006845D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95323802911006845D1 /* Preview Assets.xcassets */; };
 		99E6E95723802911006845D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99E6E95523802911006845D1 /* LaunchScreen.storyboard */; };
+		99EC2863239CBCD000B96161 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99EC2862239CBCD000B96161 /* CloudKit.framework */; };
 		99F8CF402382FE1F00F4E20B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF3F2382FE1F00F4E20B /* Home.swift */; };
 		99F8CF4C23844E2700F4E20B /* BillRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF4B23844E2700F4E20B /* BillRow.swift */; };
 		99F8CF512384506D00F4E20B /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8CF502384506D00F4E20B /* HomeHeader.swift */; };
@@ -84,6 +85,8 @@
 		99E6E95323802911006845D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99E6E95623802911006845D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99E6E95823802911006845D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99EC2860239CBC9800B96161 /* Simple Bill.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Simple Bill.entitlements"; sourceTree = "<group>"; };
+		99EC2862239CBCD000B96161 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		99F8CF3F2382FE1F00F4E20B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		99F8CF4B23844E2700F4E20B /* BillRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRow.swift; sourceTree = "<group>"; };
 		99F8CF502384506D00F4E20B /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EC2863239CBCD000B96161 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +185,7 @@
 			children = (
 				99E6E9492380290F006845D1 /* AccountBook */,
 				99E6E9482380290F006845D1 /* Products */,
+				99EC2861239CBCD000B96161 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +200,7 @@
 		99E6E9492380290F006845D1 /* AccountBook */ = {
 			isa = PBXGroup;
 			children = (
+				99EC2860239CBC9800B96161 /* Simple Bill.entitlements */,
 				99E6E95F23802D14006845D1 /* Delegate */,
 				99894124239019D700C7899D /* Views */,
 				99F8CF4D23844EF600F4E20B /* Supporting */,
@@ -232,6 +238,14 @@
 				992EB7372398139D005612C5 /* Localizable.strings */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		99EC2861239CBCD000B96161 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99EC2862239CBCD000B96161 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		99F8CF3E2382FDB000F4E20B /* Home */ = {
@@ -534,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AccountBook/Simple Bill.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AccountBook/Preview Content\"";
@@ -556,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AccountBook/Simple Bill.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AccountBook/Preview Content\"";

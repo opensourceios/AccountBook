@@ -18,7 +18,7 @@ struct About: View {
                     .cornerRadius(8)
                 HStack(spacing: 4) {
                     Text("Current Version")
-                    Text("1.0")
+                    Text("1.1")
                 }
                 VStack(spacing: 16) {
                     Text("Comments and Feedback")

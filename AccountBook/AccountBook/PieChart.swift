@@ -69,14 +69,12 @@ struct PieChart: View {
     }
 }
 
-#if DEBUG
 struct PieChart_Previews: PreviewProvider {
     static var previews: some View {
         return PieChart(slices: ChartSlice.defaultValue)
             .previewLayout(.fixed(width: 200, height: 200))
     }
 }
-#endif
 
 extension ChartSlice {
     static var defaultValue: [ChartSlice] {

@@ -52,11 +52,9 @@ struct ASTextField : UIViewRepresentable {
     }
 }
 
-#if DEBUG
 struct ASTextField_Previews : PreviewProvider {
     static var previews: some View {
         ASTextField(placeholder: "Amount", value: .constant(""))
     }
 }
-#endif
 

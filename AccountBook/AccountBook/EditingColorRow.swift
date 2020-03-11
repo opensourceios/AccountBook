@@ -23,10 +23,8 @@ struct EditingColorRow: View {
     }
 }
 
-#if DEBUG
 struct EditingColorRow_Previews: PreviewProvider {
     static var previews: some View {
         EditingColorRow(billColor: .constant(.purple))
     }
 }
-#endif

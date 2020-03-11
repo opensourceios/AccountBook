@@ -45,7 +45,6 @@ struct HomeHeader: View {
     }
 }
 
-#if DEBUG
 struct HomeHeader_Previews: PreviewProvider {
     static var previews: some View {
         HomeHeader(amount: .defaultValue)
@@ -53,4 +52,3 @@ struct HomeHeader_Previews: PreviewProvider {
             .padding([ .leading, .trailing ], 16)
     }
 }
-#endif

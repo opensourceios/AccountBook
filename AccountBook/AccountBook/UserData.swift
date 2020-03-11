@@ -11,10 +11,9 @@ import SwiftUI
 
 let billsData = "billsData"
 let labelsData = "labelsData"
-let showTestData = false
 
 final class UserData : ObservableObject {
-    @Published var bills: [Bill] = showTestData ? testBills : load(from: billsData) ?? []
+    @Published var bills: [Bill] = load(from: billsData) ?? []
 
     var income: Decimal {
         bills.filter{ $0.kind == .income }.reduce(0, { $0 + $1.amount })

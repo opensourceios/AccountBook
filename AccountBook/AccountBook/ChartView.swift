@@ -80,14 +80,12 @@ struct ChartView: View {
     }
 }
 
-#if DEBUG
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
         ChartView(dateStore: .constant(.defaultValue), isPresented: .constant(false))
             .environmentObject(UserData())
     }
 }
-#endif
 
 extension ChartView {
     enum Kind: CaseIterable {

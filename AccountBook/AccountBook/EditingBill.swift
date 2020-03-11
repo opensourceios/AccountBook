@@ -77,7 +77,6 @@ struct EditingBill: View, BillExaminer {
     }
 }
 
-#if DEBUG
 struct EditingBill_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -94,4 +93,3 @@ struct EditingBill_Previews: PreviewProvider {
         }
     }
 }
-#endif

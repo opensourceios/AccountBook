@@ -60,10 +60,8 @@ extension About {
     }
 }
 
-#if DEBUG
 struct About_Previews: PreviewProvider {
     static var previews: some View {
         About()
     }
 }
-#endif

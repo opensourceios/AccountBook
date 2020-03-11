@@ -108,7 +108,6 @@ struct AddingBill: View, BillExaminer {
     }
 }
 
-#if DEBUG
 struct AddingBill_Previews: PreviewProvider {
     static var previews: some View {
         AddingBill(kind: .income)
@@ -116,7 +115,6 @@ struct AddingBill_Previews: PreviewProvider {
         
     }
 }
-#endif
 
 // Will be deleted
 struct ListOffsetKey : PreferenceKey {

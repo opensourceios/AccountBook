@@ -62,7 +62,6 @@ struct ChartRow: View {
     }
 }
 
-#if DEBUG
 struct ChartRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -81,4 +80,3 @@ struct ChartRow_Previews: PreviewProvider {
         }
     }
 }
-#endif

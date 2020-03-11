@@ -58,10 +58,8 @@ struct AmountTextField : UIViewRepresentable {
     }
 }
 
-#if DEBUG
 struct AmountTextField_Previews: PreviewProvider {
     static var previews: some View {
         AmountTextField(placeholder: "Amount", value: .constant(""))
     }
 }
-#endif

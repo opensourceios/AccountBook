@@ -60,6 +60,7 @@ struct Home: View {
         }) {
             Text("About")
         }
+        .hidden()
         .modifier(RedButton())
         .sheet(isPresented: $isShowingAbout) {
             About()

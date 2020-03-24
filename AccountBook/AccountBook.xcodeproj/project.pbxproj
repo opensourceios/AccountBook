@@ -135,7 +135,6 @@
 		99894124239019D700C7899D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				996722AA2385989D00D0E6BC /* Models */,
 				99E2E156239379A00025742B /* EditingBill */,
 				9989412523901A0100C7899D /* Chart */,
 				99F8CF3E2382FDB000F4E20B /* Home */,
@@ -196,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				99E6E95F23802D14006845D1 /* Delegate */,
+				996722AA2385989D00D0E6BC /* Models */,
 				99894124239019D700C7899D /* Views */,
 				99F8CF4D23844EF600F4E20B /* Supporting */,
 				99190EA5238907EE00F8E15E /* Extensions */,

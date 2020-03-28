@@ -13,8 +13,8 @@ struct ASTextField : UIViewRepresentable {
     @Binding var value: String?
 
     func makeCoordinator() -> Coordinator {
-           Coordinator(self)
-       }
+        Coordinator(self)
+    }
 
     func makeUIView(context: Context) -> UITextField {
         let textField = UITextField()
